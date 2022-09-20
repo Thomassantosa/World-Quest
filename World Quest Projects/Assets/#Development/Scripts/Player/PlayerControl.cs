@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    [Header("Attack")]
+    public PlayerAttack playerAttack;
+
+    [Header("Movement")]
+    [SerializeReference] private float movementSpeed;
 
     private Rigidbody2D rB;
-
-    [SerializeReference] private float movementSpeed;
 
     private float inputX;
     private float inputY;
@@ -26,6 +29,9 @@ public class PlayerControl : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
+
+        if (Input.GetKeyDown(KeyCode.G))
+            playerAttack.Attack();
     }
 
     private void FixedUpdate()
