@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Weapon weapon;
+    public Weapon[] listWeapon;
+    public Weapon weaponActive;
     private TypeWeapon typeWeapon;
 
     void Start()
@@ -12,35 +13,21 @@ public class PlayerAttack : MonoBehaviour
         
     }
 
-    void Update()
+    private void Update()
     {
         
     }
 
+    public void UpdateRotationWeapon(Vector2 moveDirect)
+    {
+        weaponActive.transform.up = moveDirect;
+    }
+
     public void Attack()
     {
-        switch (typeWeapon)
-        {
-            case TypeWeapon.MELEE:
-                AttackMelee();
-                break;
-            case TypeWeapon.RANGE:
-                AttackRange();
-                break;
-            default:
-                break;
-        }
+        weaponActive.Attack();
     }
 
-    private void AttackMelee()
-    {
-        Debug.Log("Damage : " + weapon.GetDamage());
-    }
-
-    private void AttackRange()
-    {
-
-    }
 }
 
 public enum TypeWeapon
