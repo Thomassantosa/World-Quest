@@ -8,12 +8,20 @@ public class PlayerControl : MonoBehaviour
     public PlayerAttack playerAttack;
 
     [Header("Movement")]
+    public VariableJoystick joystick;
     [SerializeReference] private float movementSpeed;
+
+    [Header("Animation")]
+    public GameObject playerSprite;
 
     private Rigidbody2D rB;
 
-    private float inputX;
-    private float inputY;
+    private Vector2 moveDirect;
+/*    public Vector2 moveDirect
+    {
+        get { return moveDirect; }
+        private set { moveDirect = value; }
+    }*/
     private void Awake()
     {
         rB = GetComponent<Rigidbody2D>();
@@ -26,16 +34,36 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputX = Input.GetAxisRaw("Horizontal");
-        inputY = Input.GetAxisRaw("Vertical");
+        moveDirect = new Vector2(joystick.Horizontal, joystick.Vertical);
 
+        if (moveDirect != Vector2.zero)
+        {
+            UpdateDirectionFace();
+            playerAttack.UpdateRotationWeapon(moveDirect);
+        }
 
         if (Input.GetKeyDown(KeyCode.G))
             playerAttack.Attack();
     }
 
+    private void UpdateDirectionFace()
+    {
+        /*        if (moveDirect.x > 0)
+                    playerSprite.flipX = false;
+                else
+                {
+                    playerSprite.flipX = true;
+                }*/
+        if (moveDirect.x > 0)
+            playerSprite.transform.eulerAngles = Vector3.zero;
+        else
+        {
+            playerSprite.transform.eulerAngles = new Vector3(0,180,0);
+        }
+    }
+
     private void FixedUpdate()
     {
-        rB.velocity = new Vector2(inputX, inputY) * movementSpeed * Time.deltaTime;
+        rB.velocity = moveDirect * movementSpeed * Time.deltaTime;
     }
 }
