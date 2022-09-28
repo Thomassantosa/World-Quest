@@ -24,16 +24,25 @@ public class PlayerAttack : MonoBehaviour
 
     public void UpdateRotationWeapon(Vector2 moveDirect)
     {
+        if (!weaponActive)
+            return;
+
         weaponActive.transform.up = moveDirect;
     }
 
     public void Attack()
     {
+        if (!weaponActive)
+            return;
+
         weaponActive.Attack();
     }
 
     public void ChangePosHandGrap(GrabHand hand)
     {
+        if (!weaponActive)
+            return;
+
         switch (hand)
         {
             case GrabHand.LEFT:

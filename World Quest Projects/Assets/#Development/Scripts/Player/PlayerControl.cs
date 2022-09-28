@@ -8,12 +8,12 @@ public class PlayerControl : MonoBehaviour
 
     public bool isFaceRight;
 
-    [Header("Attack")]
+    [Header("Data")]
+    public PlayerData playerData;
     public PlayerAttack playerAttack;
 
     [Header("Movement")]
     public VariableJoystick joystick;
-    [SerializeReference] private float movementSpeed;
 
     [Header("Animation")]
     public GameObject playerSprite;
@@ -77,6 +77,6 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rB.velocity = moveDirect * movementSpeed * Time.deltaTime;
+        rB.velocity = moveDirect * playerData.GetMovementSpeed() * Time.deltaTime;
     }
 }
