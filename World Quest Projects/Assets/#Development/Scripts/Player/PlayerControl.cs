@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public static PlayerControl Instance;
+
+    public bool isFaceRight;
+
     [Header("Attack")]
     public PlayerAttack playerAttack;
 
@@ -17,6 +21,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rB;
 
     private Vector2 moveDirect;
+
 /*    public Vector2 moveDirect
     {
         get { return moveDirect; }
@@ -24,6 +29,8 @@ public class PlayerControl : MonoBehaviour
     }*/
     private void Awake()
     {
+        Instance = this;
+
         rB = GetComponent<Rigidbody2D>();
     }
     void Start()
@@ -55,10 +62,16 @@ public class PlayerControl : MonoBehaviour
                     playerSprite.flipX = true;
                 }*/
         if (moveDirect.x > 0)
+        {
+            isFaceRight = true;
+            playerAttack.ChangePosHandGrap(GrabHand.RIGHT);
             playerSprite.transform.eulerAngles = Vector3.zero;
+        }
         else
         {
-            playerSprite.transform.eulerAngles = new Vector3(0,180,0);
+            isFaceRight = false;
+            playerAttack.ChangePosHandGrap(GrabHand.LEFT);
+            playerSprite.transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 

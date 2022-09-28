@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public Transform handLeft;
+    public Transform handRight;
+
     public Weapon[] listWeapon;
     public Weapon weaponActive;
     private TypeWeapon typeWeapon;
@@ -15,7 +18,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T))
+            Attack();
     }
 
     public void UpdateRotationWeapon(Vector2 moveDirect)
@@ -28,10 +32,31 @@ public class PlayerAttack : MonoBehaviour
         weaponActive.Attack();
     }
 
+    public void ChangePosHandGrap(GrabHand hand)
+    {
+        switch (hand)
+        {
+            case GrabHand.LEFT:
+                weaponActive.transform.position = handLeft.position;
+                break;
+            case GrabHand.RIGHT:
+                weaponActive.transform.position = handRight.position;
+                break;
+            default:
+                break;
+        }
+    }
+
 }
 
 public enum TypeWeapon
 {
     MELEE,
     RANGE
+}
+
+public enum GrabHand
+{
+    LEFT,
+    RIGHT
 }
