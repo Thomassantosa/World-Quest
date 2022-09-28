@@ -5,14 +5,11 @@ using UnityEngine;
 public class WeaponMelee : Weapon
 {
     
-
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -20,5 +17,14 @@ public class WeaponMelee : Weapon
     public override void Attack()
     {
         Debug.Log("Attack Melee");
+        PlayAnimHit();
+    }
+
+    private void PlayAnimHit()
+    {
+        if(PlayerControl.Instance.isFaceRight)
+            anim.Play("weapon_melee_attack_right");
+        else
+            anim.Play("weapon_melee_attack_left");
     }
 }
