@@ -319,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7401ec7307472c941a9527e4a4e5b8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handLeft: {fileID: 0}
+  handRight: {fileID: 0}
   listWeapon: []
   weaponActive: {fileID: 1422937156}
 --- !u!114 &271301606
@@ -333,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884d1a1bc543ad94fb83c151268b54bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaceRight: 0
   playerAttack: {fileID: 271301605}
   joystick: {fileID: 107355424}
   movementSpeed: 100
@@ -6321,7 +6324,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7c2657c5f7f0947439ad641c2b61ac62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1a61be313dcf3d479717417400e07f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
