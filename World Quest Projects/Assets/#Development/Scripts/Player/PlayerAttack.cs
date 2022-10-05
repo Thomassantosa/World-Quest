@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Weapon[] listWeapon;
     public Weapon weaponActive;
-    private TypeWeapon typeWeapon;
+    private int weaponCount;
 
     void Start()
     {
@@ -56,6 +56,74 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void SetWeapon(Weapon weapon)
+    {
+        weapon.gameObject.SetActive(true);
+
+        weapon.transform.position = handRight.position;
+        weaponActive = weapon;
+    }
+
+    public void GetWeapon(Weapon weapon)
+    {
+        if(weaponCount < 2)
+        {
+            if (listWeapon[0] == null)
+            {
+                listWeapon[0] = weapon;
+                weaponActive = weapon;
+            }
+            else if (listWeapon[1] == null)
+            {
+                listWeapon[1] = weapon;
+                weapon.gameObject.SetActive(false);
+            }
+
+            weapon.SetIsActive(true);
+            weaponCount++;
+        }
+    }
+
+    public void DropWeapon(Weapon weapon)
+    {
+        if(weaponCount > 0)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (listWeapon[i] == null)
+                    continue;
+
+                if(listWeapon[i] == weapon)
+                {
+                    listWeapon[i].SetIsActive(true);
+                    listWeapon[i] = null;
+                    weaponCount--;
+                    break;
+                }
+            }
+        }
+    }
+
+    public void ChangeWeapon()
+    {
+        if (weaponCount >= 2)
+        {
+            if (listWeapon[0] == weaponActive)
+            {
+                listWeapon[0].SetIsActive(false);
+                listWeapon[0].gameObject.SetActive(false);
+
+                SetWeapon(listWeapon[1]);
+            }
+            else
+            {
+                listWeapon[1].SetIsActive(false);
+                listWeapon[1].gameObject.SetActive(false);
+
+                SetWeapon(listWeapon[0]);
+            }
+        }
+    }
 }
 
 public enum TypeWeapon
