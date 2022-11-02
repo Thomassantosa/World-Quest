@@ -22,7 +22,7 @@ public class WeaponMelee : Weapon
 
     private void PlayAnimHit()
     {
-        if(PlayerControl.Instance.isFaceRight)
+        if(PlayerControl.Instance.playerData.isFaceRight)
             anim.Play("weapon_melee_attack_right");
         else
             anim.Play("weapon_melee_attack_left");

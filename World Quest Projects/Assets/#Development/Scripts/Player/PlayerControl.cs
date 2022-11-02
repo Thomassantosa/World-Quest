@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl Instance;
 
-    public bool isFaceRight;
 
     [Header("Data")]
     public PlayerData playerData;
@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour
 
     private Vector2 moveDirect;
 
+
 /*    public Vector2 moveDirect
     {
         get { return moveDirect; }
@@ -35,7 +36,6 @@ public class PlayerControl : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Player Control");
     }
 
     // Update is called once per frame
@@ -53,30 +53,40 @@ public class PlayerControl : MonoBehaviour
             playerAttack.Attack();
     }
 
-    private void UpdateDirectionFace()
+    public void UpdateDirectionFace()
     {
-        /*        if (moveDirect.x > 0)
-                    playerSprite.flipX = false;
-                else
-                {
-                    playerSprite.flipX = true;
-                }*/
         if (moveDirect.x > 0)
         {
-            isFaceRight = true;
+            if (!playerData.isFaceRight)
+                ChangeDirectionFace(true);
+        }
+        else
+        {
+            if (playerData.isFaceRight)
+                ChangeDirectionFace(false);
+        }
+    }
+    private void ChangeDirectionFace(bool toRight)
+    {
+        if (toRight)
+        {
+            playerData.isFaceRight = true;
             playerAttack.ChangePosHandGrap(GrabHand.RIGHT);
             playerSprite.transform.eulerAngles = Vector3.zero;
         }
         else
         {
-            isFaceRight = false;
+            playerData.isFaceRight = false;
             playerAttack.ChangePosHandGrap(GrabHand.LEFT);
             playerSprite.transform.eulerAngles = new Vector3(0, 180, 0);
         }
+
+
     }
 
     private void FixedUpdate()
     {
         rB.velocity = moveDirect * playerData.GetMovementSpeed() * Time.deltaTime;
     }
+
 }
