@@ -23,11 +23,14 @@ public class PlayerControl : MonoBehaviour
     private Vector2 moveDirect;
 
 
-/*    public Vector2 moveDirect
-    {
-        get { return moveDirect; }
-        private set { moveDirect = value; }
-    }*/
+    /*    public Vector2 moveDirect
+        {
+            get { return moveDirect; }
+            private set { moveDirect = value; }
+        }*/
+
+    public NPCControl npcActive;
+
     private void Awake()
     {
         Instance = this;
@@ -41,7 +44,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirect = new Vector2(joystick.Horizontal, joystick.Vertical);
+        float moveX = joystick.Horizontal;
+        float moveY = joystick.Vertical;
+        moveDirect = new Vector2(moveX, moveY);
+        GameManager.instance.canvas.SetDPad(moveX, moveY);
 
         if (moveDirect != Vector2.zero)
         {
@@ -87,6 +93,24 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         rB.velocity = moveDirect * playerData.GetMovementSpeed() * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag.Equals("NPC"))
+        {
+            npcActive = collision.GetComponent<NPCControl>();
+            GameManager.instance.canvas.SetButtonDialog(npcActive);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("NPC"))
+        {
+            GameManager.instance.canvas.CloseButtonDialog();
+            npcActive = null;
+        }
     }
 
 }
