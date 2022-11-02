@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     private void Update()
@@ -46,9 +45,11 @@ public class PlayerAttack : MonoBehaviour
         switch (hand)
         {
             case GrabHand.LEFT:
+                weaponActive.transform.parent = handLeft;
                 weaponActive.transform.position = handLeft.position;
                 break;
             case GrabHand.RIGHT:
+                weaponActive.transform.parent = handRight;
                 weaponActive.transform.position = handRight.position;
                 break;
             default:
@@ -60,18 +61,20 @@ public class PlayerAttack : MonoBehaviour
     {
         weapon.gameObject.SetActive(true);
 
-        weapon.transform.position = handRight.position;
         weaponActive = weapon;
+        weaponActive.transform.position = handRight.position;
+        weaponActive.transform.parent = handRight;
     }
 
     public void GetWeapon(Weapon weapon)
     {
-        if(weaponCount < 2)
+        if (weaponCount < 2)
         {
             if (listWeapon[0] == null)
             {
                 listWeapon[0] = weapon;
                 weaponActive = weapon;
+                SetWeapon(weapon);
             }
             else if (listWeapon[1] == null)
             {
