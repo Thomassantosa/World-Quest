@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Duar : " + damage);
         if (!collision.gameObject.tag.Equals("Player"))
             Destroy(gameObject);
     }

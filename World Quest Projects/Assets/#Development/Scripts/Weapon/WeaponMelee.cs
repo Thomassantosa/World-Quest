@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponMelee : Weapon
 {
-    
+    public TypeMelee typeMelee;
     void Start()
     {
         
@@ -16,15 +16,20 @@ public class WeaponMelee : Weapon
     }
     public override void Attack()
     {
-        Debug.Log("Attack Melee");
-        PlayAnimHit();
+        switch (typeMelee)
+        {
+            case TypeMelee.SWORD:
+                anim.Play("Attack_Sword");
+                break;
+            case TypeMelee.AXE:
+                anim.Play("Attack_Axe");
+                break;
+        }
     }
+}
 
-    private void PlayAnimHit()
-    {
-        if(PlayerControl.Instance.playerData.isFaceRight)
-            anim.Play("weapon_melee_attack_right");
-        else
-            anim.Play("weapon_melee_attack_left");
-    }
+public enum TypeMelee
+{
+    SWORD,
+    AXE
 }

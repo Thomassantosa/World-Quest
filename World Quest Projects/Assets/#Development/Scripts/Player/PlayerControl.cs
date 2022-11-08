@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl Instance;
 
-
+    public TypeUser type;
     [Header("Data")]
     public PlayerData playerData;
     public PlayerAttack playerAttack;
@@ -22,12 +22,8 @@ public class PlayerControl : MonoBehaviour
 
     private Vector2 moveDirect;
 
+    public NPCControl npcActive;
 
-/*    public Vector2 moveDirect
-    {
-        get { return moveDirect; }
-        private set { moveDirect = value; }
-    }*/
     private void Awake()
     {
         Instance = this;
@@ -41,28 +37,26 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirect = new Vector2(joystick.Horizontal, joystick.Vertical);
+        float moveX = joystick.Horizontal;
+        float moveY = joystick.Vertical;
+        moveDirect = new Vector2(moveX, moveY);
+        GameManager.instance.canvas.SetDPad(moveX, moveY);
 
         if (moveDirect != Vector2.zero)
         {
             UpdateDirectionFace();
             playerAttack.UpdateRotationWeapon(moveDirect);
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-            playerAttack.Attack();
     }
 
     public void UpdateDirectionFace()
     {
         if (moveDirect.x > 0)
         {
-            if (!playerData.isFaceRight)
                 ChangeDirectionFace(true);
         }
         else
         {
-            if (playerData.isFaceRight)
                 ChangeDirectionFace(false);
         }
     }
@@ -71,13 +65,11 @@ public class PlayerControl : MonoBehaviour
         if (toRight)
         {
             playerData.isFaceRight = true;
-            playerAttack.ChangePosHandGrap(GrabHand.RIGHT);
             playerSprite.transform.eulerAngles = Vector3.zero;
         }
         else
         {
             playerData.isFaceRight = false;
-            playerAttack.ChangePosHandGrap(GrabHand.LEFT);
             playerSprite.transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
@@ -89,4 +81,34 @@ public class PlayerControl : MonoBehaviour
         rB.velocity = moveDirect * playerData.GetMovementSpeed() * Time.deltaTime;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag.Equals("NPC"))
+        {
+            npcActive = collision.GetComponent<NPCControl>();
+            GameManager.instance.canvas.SetButtonDialog(npcActive);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("NPC"))
+        {
+            GameManager.instance.canvas.CloseButtonDialog();
+            npcActive = null;
+        }
+    }
+    public void GetDamage(int dmg)
+    {
+        int lastHealth = playerData.GetHealthPoint() - dmg;
+        if (lastHealth > 0)
+        {
+            playerData.SetHealthPoint(lastHealth);
+        }
+        else
+        {
+            playerData.SetHealthPoint(0);
+            Debug.LogError("Player Die");
+        }
+    }
 }
