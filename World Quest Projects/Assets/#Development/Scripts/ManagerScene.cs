@@ -17,6 +17,7 @@ public class ManagerScene : MonoBehaviour
     public void ChangeSceneDelay(string nameScene)
     {
         this.nameScene = nameScene;
+        GameManager.instance.canvas.PanelLoading(true);
         Invoke(nameof(ChangeScene), timeDelay);
     }
 
