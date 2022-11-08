@@ -539,6 +539,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CanvasManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2626443059240485674, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626443059240485674, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258890850093836046, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -387
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258890850093836046, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 71
+      objectReference: {fileID: 0}
     - target: {fileID: 4027370601751172768, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_Name
       value: Main System
@@ -611,6 +627,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8396872542838365630, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -297.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419374107669705980, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -348
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419374107669705980, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002942425475337983, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -173.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002942425475337983, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
 --- !u!114 &255029879 stripped
@@ -679,7 +715,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 463e2a3be667c6d4fa410d877a61c571, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -735,7 +771,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 463e2a3be667c6d4fa410d877a61c571, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -759,6 +795,8 @@ GameObject:
   - component: {fileID: 459682496}
   - component: {fileID: 459682495}
   - component: {fileID: 459682494}
+  - component: {fileID: 459682498}
+  - component: {fileID: 459682497}
   m_Layer: 0
   m_Name: Blocking
   m_TagString: Untagged
@@ -792,7 +830,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1730,6 +1768,111 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &459682497
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459682492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 459682494}
+    m_ColliderPaths:
+    - - X: 20000000
+        Y: -30000000
+      - X: 70000000
+        Y: -30000000
+      - X: 70000000
+        Y: 90000000
+      - X: -70000000
+        Y: 90000000
+      - X: -70000000
+        Y: -30000000
+      - X: -20000000
+        Y: -30000000
+      - X: -20000000
+        Y: -50000000
+      - X: 20000000
+        Y: -50000000
+    - - X: -10000000
+        Y: -40000000
+      - X: -10000000
+        Y: -20000000
+      - X: -60000000
+        Y: -20000000
+      - X: -60000000
+        Y: 70000000
+      - X: 60000000
+        Y: 70000000
+      - X: 60000000
+        Y: -20000000
+      - X: 10000000
+        Y: -20000000
+      - X: 10000000
+        Y: -40000000
+    - - X: 30000000
+        Y: 60000000
+      - X: -30000000
+        Y: 60000000
+      - X: -30000000
+        Y: 30000000
+      - X: 30000000
+        Y: 30000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 1.9999708, y: -5}
+      - {x: 2.0000293, y: -3}
+      - {x: 7, y: -2.999971}
+      - {x: 6.9999704, y: 9}
+      - {x: -7, y: 8.99997}
+      - {x: -6.9999704, y: -3}
+      - {x: -2, y: -3.0000293}
+      - {x: -1.9999708, y: -5}
+    - - {x: 1, y: -3.9999704}
+      - {x: -1, y: -3.9999704}
+      - {x: -1.0000293, y: -2}
+      - {x: -6, y: -1.9999707}
+      - {x: -5.9999704, y: 7}
+      - {x: 6, y: 6.9999704}
+      - {x: 5.9999704, y: -2}
+      - {x: 1, y: -2.0000293}
+    - - {x: 2.999971, y: 3}
+      - {x: 2.999971, y: 6}
+      - {x: -3, y: 5.999971}
+      - {x: -2.999971, y: 3}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &459682498
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459682492}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &770951303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +3070,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9be8344a261e85e47addac087c931fc6, type: 3}
+    - target: {fileID: 6102385416096362697, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6102385416888302901, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.38
