@@ -4,13 +4,14 @@ using UnityEngine;
 
 abstract public class Weapon : MonoBehaviour
 {
-    public TypeWeapon typeWeapon;
+    public TypeUser typeUser;
+    public TypeAttack typeWeapon;
     public int damage;
 
     public Animator anim;
 
 
-    private bool isActive;
+    public bool isActive;
 
     public int GetDamage()
     {
@@ -27,11 +28,30 @@ abstract public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        Debug.Log("OTE Base");
+        if (!isActive)
         {
-            if (!isActive)
+            if (collision.gameObject.tag.Equals("Player"))
             {
+
                 collision.GetComponent<PlayerAttack>().GetWeapon(this);
+            }
+        }
+        else
+        {
+            if (typeUser == TypeUser.PLAYER)
+            {
+                if (collision.gameObject.tag.Equals("Enemy"))
+                {
+                    collision.GetComponent<EnemyControl>().GetDamage(damage);
+                }
+            }
+            else if (typeUser == TypeUser.ENEMY)
+            {
+                if (collision.gameObject.tag.Equals("Player"))
+                {
+                    collision.GetComponent<PlayerControl>().GetDamage(damage);
+                }
             }
         }
     }

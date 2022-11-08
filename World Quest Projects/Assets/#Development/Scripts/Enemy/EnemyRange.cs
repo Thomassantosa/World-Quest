@@ -22,7 +22,6 @@ public class EnemyRange : EnemyControl
     {
         if (Vector3.Distance(transform.position, targetPlayer.position) < minDistance)
         {
-            Debug.Log("Cek Move");
             if (run)
             {
                 counterRun += Time.deltaTime;

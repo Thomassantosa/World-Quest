@@ -21,10 +21,9 @@ public class EnemyMelee : EnemyControl
         if (Vector3.Distance(transform.position, targetPlayer.position) > minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
-        }
+        }else
         {
             IdleIsTrue();
-            Debug.LogError("Stop");
             enemyAttack.Attack();
         }
 

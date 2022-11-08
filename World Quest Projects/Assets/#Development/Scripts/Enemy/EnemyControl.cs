@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
+    public TypeUser type;
     [Header("Main Data")]
     public EnemyData enemyData;
     public EnemyAttack enemyAttack;
     public GameObject enemyAnim;
     public Rigidbody2D rB;
-    [SerializeField] protected EnemyType enemyType;
+    [SerializeField] protected TypeAttack typeAttack;
 
     [Header("Finding Player")]
     public float radiusFindPlayer;
@@ -40,7 +41,10 @@ public class EnemyControl : MonoBehaviour
 
         if (isFoundPlayer != null)
         {
-            FoundPlayer(isFoundPlayer.gameObject);
+            if (targetPlayer == null)
+            {
+                FoundPlayer(isFoundPlayer.gameObject);
+            }
         }
         else
         {
@@ -77,6 +81,7 @@ public class EnemyControl : MonoBehaviour
                 UpdateMovementRandom();
             }
         }
+        
     }
 
     protected void UpdateMovementRandom()
@@ -123,13 +128,13 @@ public class EnemyControl : MonoBehaviour
         if (toRight)
         {
             enemyData.isFaceRight = true;
-            enemyAttack.ChangePosHandGrap(GrabHand.RIGHT);
+/*            enemyAttack.ChangePosHandGrap(GrabHand.RIGHT);*/
             enemyAnim.transform.eulerAngles = Vector3.zero;
         }
         else
         {
             enemyData.isFaceRight = false;
-            enemyAttack.ChangePosHandGrap(GrabHand.LEFT);
+/*            enemyAttack.ChangePosHandGrap(GrabHand.LEFT);*/
             enemyAnim.transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
@@ -154,6 +159,20 @@ public class EnemyControl : MonoBehaviour
         
     }
 
+    public void GetDamage(int dmg)
+    {
+        int lastHealth = enemyData.GetHealthPoint() - dmg;
+        if (lastHealth > 0)
+        {
+            enemyData.SetHealthPoint(lastHealth);
+        }
+        else
+        {
+            enemyData.SetHealthPoint(0);
+            Destroy(gameObject);
+        }
+    }
+
 
     protected void ChangeMovement()
     {
@@ -165,11 +184,4 @@ public class EnemyControl : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radiusFindPlayer);
     }
-}
-
-
-public enum EnemyType
-{
-    MELEE,
-    RANGE
 }

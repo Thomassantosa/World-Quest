@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public Transform handLeft;
-    public Transform handRight;
+    public Transform posHand;
 
     public Weapon weaponActive;
-
-    void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -36,31 +30,11 @@ public class EnemyAttack : MonoBehaviour
         weaponActive.Attack();
     }
 
-    public void ChangePosHandGrap(GrabHand hand)
-    {
-        if (!weaponActive)
-            return;
-
-        switch (hand)
-        {
-            case GrabHand.LEFT:
-                weaponActive.transform.parent = handLeft;
-                weaponActive.transform.position = handLeft.position;
-                break;
-            case GrabHand.RIGHT:
-                weaponActive.transform.parent = handRight;
-                weaponActive.transform.position = handRight.position;
-                break;
-            default:
-                break;
-        }
-    }
-
     public void SetWeapon(Weapon weapon)
     {
         weapon.gameObject.SetActive(true);
 
-        weapon.transform.position = handRight.position;
+        weapon.transform.position = posHand.position;
         weaponActive = weapon;
     }
 }
