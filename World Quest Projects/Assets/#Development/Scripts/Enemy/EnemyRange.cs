@@ -20,38 +20,38 @@ public class EnemyRange : EnemyControl
 
     public override void UpdateMovementTarget()
     {
-        if (Vector3.Distance(transform.position, targetPlayer.position) < minDistance)
+        /*if (Vector3.Distance(transform.position, targetPlayer.position) < minDistance)
         {
-            if (run)
-            {
-                counterRun += Time.deltaTime;
-                if(counterRun >= 1)
-                {
-                    run = false;
-                    counterRun = 3;
-                }
+                    if (run)
+                    {
+                        counterRun += Time.deltaTime;
+                        if(counterRun >= 1)
+                        {
+                            run = false;
+                            counterRun = 3;
+                        }
 
-                transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * -1 * Time.deltaTime);
-            }
-            else
-            {
-                counterRun -= Time.deltaTime;
-                if(counterRun <= 0)
-                {
-                    run = true;
-                    counterRun = 0;
-                }
-            }
+                        transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * -1 * Time.deltaTime);
+                    }
+                    else
+                    {
+                        counterRun -= Time.deltaTime;
+                        if(counterRun <= 0)
+                        {
+                            run = true;
+                            counterRun = 0;
+                        }
+                    }*/
 
-
-/*            if(!enemyData.isIdle)
-            {
-                IdleIsTrue();
-            }*/
+        if (Vector3.Distance(transform.position, targetPlayer.position) > minDistance)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
         }
-/*        else
+        else
         {
             IdleIsTrue();
-        }*/
+            enemyAttack.Attack();
+        }
+
     }
 }

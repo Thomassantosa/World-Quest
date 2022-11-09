@@ -7,6 +7,7 @@ abstract public class Weapon : MonoBehaviour
     public TypeUser typeUser;
     public TypeAttack typeWeapon;
     public int damage;
+    [SerializeField] protected float cooldownAttack;
 
     public Animator anim;
     public BoxCollider2D colliderWeapon;
@@ -24,8 +25,14 @@ abstract public class Weapon : MonoBehaviour
         isActive = con;
     }
 
-    public void UseWeapon()
+    public void WeaponActive()
     {
+        colliderWeapon.enabled = true;
+    }
+
+    public void WeaponDeactive()
+    {
+        Debug.Log("Matiin colider");
         colliderWeapon.enabled = false;
     }
 
@@ -39,7 +46,7 @@ abstract public class Weapon : MonoBehaviour
             if (collision.gameObject.tag.Equals("Player"))
             {
                 collision.GetComponent<PlayerAttack>().GetWeapon(this);
-                UseWeapon();
+                WeaponDeactive();
             }
         }
         else

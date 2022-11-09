@@ -161,8 +161,9 @@ MonoBehaviour:
   typeUser: 0
   typeWeapon: 1
   damage: 10
+  cooldownAttack: 0
   anim: {fileID: 0}
-  colliderWeapon: {fileID: 0}
+  colliderWeapon: {fileID: 2102051242650121399}
   isActive: 0
   typeRange: 0
   posShot: {fileID: 1515640622}
