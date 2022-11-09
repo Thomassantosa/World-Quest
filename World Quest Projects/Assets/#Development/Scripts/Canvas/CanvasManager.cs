@@ -6,6 +6,8 @@ using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
+    public bool isCanvasMainMenu;
+
     [Header("Panel")]
     public GameObject panelSetting;
     public GameObject panelLoading;
@@ -28,6 +30,8 @@ public class CanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (isCanvasMainMenu) return;
+
         buttonAttack.onClick.AddListener(PlayerControl.Instance.playerAttack.Attack);
         buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
     }

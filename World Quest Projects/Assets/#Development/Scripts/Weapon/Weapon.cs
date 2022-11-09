@@ -9,6 +9,7 @@ abstract public class Weapon : MonoBehaviour
     public int damage;
 
     public Animator anim;
+    public BoxCollider2D colliderWeapon;
 
 
     public bool isActive;
@@ -23,22 +24,27 @@ abstract public class Weapon : MonoBehaviour
         isActive = con;
     }
 
+    public void UseWeapon()
+    {
+        colliderWeapon.enabled = false;
+    }
+
     abstract public void Attack();
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OTE Base");
         if (!isActive)
         {
             if (collision.gameObject.tag.Equals("Player"))
             {
-
                 collision.GetComponent<PlayerAttack>().GetWeapon(this);
+                UseWeapon();
             }
         }
         else
         {
+
             if (typeUser == TypeUser.PLAYER)
             {
                 if (collision.gameObject.tag.Equals("Enemy"))

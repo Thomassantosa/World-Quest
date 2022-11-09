@@ -46,9 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4b74e0f4ca6cf4881e9f87cc9f7daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeUser: 0
   typeWeapon: 0
   damage: 0
   anim: {fileID: 3400221663141211514}
+  colliderWeapon: {fileID: 4962218163835722528}
+  isActive: 0
+  typeMelee: 0
 --- !u!61 &4962218163835722528
 BoxCollider2D:
   m_ObjectHideFlags: 0

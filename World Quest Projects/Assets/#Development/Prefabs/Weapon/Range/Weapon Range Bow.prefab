@@ -7,13 +7,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3899191458151803876, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899191458151803876, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899191458151803879, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2036968db7430d4a8ed3ed77cfaa2f7, type: 3}
+    - target: {fileID: 3899191458151803879, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899191458151803879, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899191458151803879, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3899191458280902032, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
       propertyPath: m_Name
-      value: Weapon Range
+      value: Weapon Range Bow
       objectReference: {fileID: 0}
     - target: {fileID: 3899191458280902034, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899191458280902034, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3899191458280902034, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,5 +83,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 607842446259104119, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
