@@ -6,12 +6,15 @@ using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
+    public bool isCanvasMainMenu;
+
     [Header("Panel")]
     public GameObject panelSetting;
     public GameObject panelLoading;
 
     public Button buttonDialog;
     public Button buttonAttack;
+    public Button buttonChange;
 
     [Header("Movement")]
     public ButtonDPad dPadTop;
@@ -25,6 +28,14 @@ public class CanvasManager : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        if (isCanvasMainMenu) return;
+
+        buttonAttack.onClick.AddListener(PlayerControl.Instance.playerAttack.Attack);
+        buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
+    }
+
     public void SetButtonDialog(NPCControl nPCControl)
     {
         buttonAttack.gameObject.SetActive(false);
@@ -36,12 +47,6 @@ public class CanvasManager : MonoBehaviour
         buttonDialog.onClick.RemoveAllListeners();
         buttonDialog.gameObject.SetActive(false);
         buttonAttack.gameObject.SetActive(true);
-    }
-
-    public void ChangeSceneMainMenu()
-    {
-        PanelLoading(true);
-        ManagerScene.instance.ChangeSceneDelay("MainMenu");
     }
 
     public void PanelLoading(bool con)

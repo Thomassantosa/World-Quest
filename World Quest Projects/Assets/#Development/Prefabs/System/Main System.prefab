@@ -84,10 +84,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5670187456611078126}
     m_Modifications:
-    - target: {fileID: 532194741354220443, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 594406321301638675}
     - target: {fileID: 2607764856909156329, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -187,38 +183,6 @@ PrefabInstance:
     - target: {fileID: 3477107715676423466, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6802132085004395239}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PanelSetting
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CanvasManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307525860893127058, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5327475308129024495, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_AnchorMax.x

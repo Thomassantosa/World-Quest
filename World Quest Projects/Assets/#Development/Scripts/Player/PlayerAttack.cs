@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Transform handLeft;
-    public Transform handRight;
+    public Transform posHand;
 
     public Weapon[] listWeapon;
     public Weapon weaponActive;
     private int weaponCount;
 
-    void Start()
-    {
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            Attack();
-    }
 
     public void UpdateRotationWeapon(Vector2 moveDirect)
     {
@@ -37,33 +27,13 @@ public class PlayerAttack : MonoBehaviour
         weaponActive.Attack();
     }
 
-    public void ChangePosHandGrap(GrabHand hand)
-    {
-        if (!weaponActive)
-            return;
-
-        switch (hand)
-        {
-            case GrabHand.LEFT:
-                weaponActive.transform.parent = handLeft;
-                weaponActive.transform.position = handLeft.position;
-                break;
-            case GrabHand.RIGHT:
-                weaponActive.transform.parent = handRight;
-                weaponActive.transform.position = handRight.position;
-                break;
-            default:
-                break;
-        }
-    }
-
     public void SetWeapon(Weapon weapon)
     {
         weapon.gameObject.SetActive(true);
 
         weaponActive = weapon;
-        weaponActive.transform.position = handRight.position;
-        weaponActive.transform.parent = handRight;
+        weaponActive.transform.position = posHand.position;
+        weaponActive.transform.parent = posHand;
     }
 
     public void GetWeapon(Weapon weapon)
@@ -82,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
 
+            weapon.UseWeapon();
             weapon.SetIsActive(true);
             weaponCount++;
         }
@@ -129,14 +100,3 @@ public class PlayerAttack : MonoBehaviour
     }
 }
 
-public enum TypeWeapon
-{
-    MELEE,
-    RANGE
-}
-
-public enum GrabHand
-{
-    LEFT,
-    RIGHT
-}
