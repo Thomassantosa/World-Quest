@@ -14,12 +14,16 @@ public class EnemyAttack : MonoBehaviour
             Attack();
     }
 
-    public void UpdateRotationWeapon(Vector2 moveDirect)
+    public void UpdateRotationWeapon(Vector3 moveDirect)
     {
         if (!weaponActive)
             return;
 
-        weaponActive.transform.up = moveDirect;
+        Vector3 rotation = moveDirect - transform.position;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        weaponActive.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        //weaponActive.transform.up = moveDirect;
     }
 
     public void Attack()

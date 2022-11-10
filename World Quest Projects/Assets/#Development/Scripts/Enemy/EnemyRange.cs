@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyRange : EnemyControl
 {
+    public EnemyTower enemyTower;
+
     bool run;
     float counterRun;
     private void Start()
@@ -16,6 +18,8 @@ public class EnemyRange : EnemyControl
     {
         UpdateMovement();
         UpdateRotationWeapon();
+
+        enemyTower.enabled = targetPlayer != null;
     }
 
     public override void UpdateMovementTarget()
@@ -50,8 +54,10 @@ public class EnemyRange : EnemyControl
         else
         {
             IdleIsTrue();
-            enemyAttack.Attack();
+            //enemyAttack.Attack();
         }
+
+        
 
     }
 }
