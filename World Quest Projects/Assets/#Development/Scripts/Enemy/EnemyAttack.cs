@@ -8,12 +8,6 @@ public class EnemyAttack : MonoBehaviour
 
     public Weapon weaponActive;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            Attack();
-    }
-
     public void UpdateRotationWeapon(Vector3 moveDirect)
     {
         if (!weaponActive)
@@ -22,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
         Vector3 rotation = moveDirect - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
+        //weaponActive.transform.eulerAngles = new Vector3(0, 0, rotZ);
         weaponActive.transform.rotation = Quaternion.Euler(0, 0, rotZ);
         //weaponActive.transform.up = moveDirect;
     }

@@ -7,6 +7,8 @@ public class EnemyTower : PlayerData
     public Camera cam;
     [SerializeField] private float adjustRotation;
 
+    [Header("Profile")]
+    public TypeUser typeUser;
     public Bullet objectBullet;
     public Transform posShot;
     [SerializeField] private int speedBullet;
@@ -67,6 +69,8 @@ public class EnemyTower : PlayerData
         _cooldownShooting = cooldownShooting;
         objectBullet.SetDamage((int)GetDamage());
         GameObject newBullet = Instantiate(objectBullet.gameObject, posShot.position, posShot.rotation);
+        Bullet scriptBullet = newBullet.GetComponent<Bullet>();
+        scriptBullet.typeUser = typeUser;
         newBullet.GetComponent<Rigidbody2D>().AddForce(posShot.up * speedBullet, ForceMode2D.Impulse);
     }
     private float rotZ;
@@ -93,7 +97,22 @@ public class EnemyTower : PlayerData
             transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
     }
-
+    public void GetDamage(int dmg)
+    {
+        //Test
+        Destroy(gameObject);
+        return;
+        int lastHealth = GetHealthPoint() - dmg;
+        if (lastHealth > 0)
+        {
+            SetHealthPoint(lastHealth);
+        }
+        else
+        {
+            SetHealthPoint(0);
+            Destroy(gameObject);
+        }
+    }
 
 
     private void OnDrawGizmos()

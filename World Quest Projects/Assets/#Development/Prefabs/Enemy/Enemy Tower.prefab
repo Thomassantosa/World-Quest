@@ -103,7 +103,8 @@ MonoBehaviour:
   isFaceRight: 0
   isIdle: 0
   cam: {fileID: 0}
-  adjustRotation: -90
+  adjustRotation: 90
+  typeUser: 1
   objectBullet: {fileID: 6967835257430870295, guid: 43d1db56d40aaa84d8a5966905e1e6fb, type: 3}
   posShot: {fileID: 5804319317736452685}
   speedBullet: 5
@@ -111,7 +112,7 @@ MonoBehaviour:
   radiusFindPlayer: 6
   layerPlayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   cooldownShooting: 3
   targetPlayer: {fileID: 0}
 --- !u!1 &5804319317736452682

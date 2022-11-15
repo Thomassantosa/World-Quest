@@ -161,6 +161,9 @@ public class EnemyControl : MonoBehaviour
 
     public void GetDamage(int dmg)
     {
+        //Test
+        Destroy(gameObject);
+        return;
         int lastHealth = enemyData.GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {

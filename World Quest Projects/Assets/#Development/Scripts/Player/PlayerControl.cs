@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
     }
     void Start()
     {
+        playerData.SetMovementSpeed(playerData.GetNormalSpeed());
     }
 
     // Update is called once per frame

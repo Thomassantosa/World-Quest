@@ -52,19 +52,34 @@ abstract public class Weapon : MonoBehaviour
         else
         {
 
-            if (typeUser == TypeUser.PLAYER)
+
+            if (collision.gameObject.tag.Equals("Enemy"))
             {
-                if (collision.gameObject.tag.Equals("Enemy"))
+                if (typeUser == TypeUser.ENEMY) return;
+
+                /*EnemyControl enemy = collision.GetComponent<EnemyControl>();
+                if (enemy == null) return;
+
+                enemy.GetDamage(damage);*/
+
+                EnemyControl enemy = collision.gameObject.GetComponent<EnemyControl>();
+                if (enemy == null)
                 {
-                    collision.GetComponent<EnemyControl>().GetDamage(damage);
+                    EnemyTower enemyTower = collision.gameObject.GetComponent<EnemyTower>();
+                    if (enemyTower != null)
+                    {
+                        enemyTower.GetDamage(damage);
+                    }
+                    return;
                 }
+                enemy.GetDamage(damage);
             }
-            else if (typeUser == TypeUser.ENEMY)
+            if (collision.gameObject.tag.Equals("Player"))
             {
-                if (collision.gameObject.tag.Equals("Player"))
-                {
-                    collision.GetComponent<PlayerControl>().GetDamage(damage);
-                }
+                if (typeUser == TypeUser.PLAYER) return;
+
+                collision.GetComponent<PlayerControl>().GetDamage(damage);
+
             }
         }
     }

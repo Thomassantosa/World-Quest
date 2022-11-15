@@ -23,6 +23,9 @@ public class WeaponRange : Weapon
 
         bullet.SetDamage(damage);
         GameObject newBullet = Instantiate(bullet.gameObject, posShot.position, posShot.rotation);
+        Bullet scriptBullet = newBullet.GetComponent<Bullet>();
+        scriptBullet.typeUser = typeUser;
+
         newBullet.GetComponent<Rigidbody2D>().AddForce(posShot.up * speedBullet, ForceMode2D.Impulse);
     }
 }

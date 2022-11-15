@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     public Button buttonDialog;
     public Button buttonAttack;
     public Button buttonChange;
+    public Button buttonDash;
 
     [Header("Movement")]
     public ButtonDPad dPadTop;
@@ -34,6 +35,7 @@ public class CanvasManager : MonoBehaviour
 
         buttonAttack.onClick.AddListener(PlayerControl.Instance.playerAttack.Attack);
         buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
+        buttonDash.onClick.AddListener(PlayerControl.Instance.playerAttack.Dash);
     }
 
     public void SetButtonDialog(NPCControl nPCControl)
