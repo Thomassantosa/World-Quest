@@ -69,7 +69,11 @@ MonoBehaviour:
   healthPoint: 100
   manaPoint: 100
   damage: 0
-  movementSpeed: 100
+  normalSpeed: 100
+  movementSpeed: 0
+  dashSpeed: 400
+  dashTime: 0.2
+  dashCooldown: 1
   isFaceRight: 0
   isIdle: 0
 --- !u!114 &6102385415640639330
