@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3477107715676423464, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3477107715676423466, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_Pivot.x
       value: 0
