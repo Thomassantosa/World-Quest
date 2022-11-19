@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 6802132085004395239}
+  player: {fileID: 0}
 --- !u!1 &4027370601751172768
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,10 +265,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5355954307472572571, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-      propertyPath: buttonDash
-      value: 
-      objectReference: {fileID: 2573119681463285061}
     - target: {fileID: 6480046599078288550, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -296,17 +293,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48b06c80d7f486146968eb06e0117716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2573119681463285061 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4001348973468473145, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
-  m_PrefabInstance: {fileID: 1455272940199813756}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2770375882771744542

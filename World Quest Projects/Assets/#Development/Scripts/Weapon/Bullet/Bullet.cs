@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
             if (typeUser == TypeUser.PLAYER) return;
             PlayerControl player = collision.gameObject.GetComponent<PlayerControl>();
             player.GetDamage(damage);
+            Destroy(gameObject);
         }
         else if (collision.gameObject.tag.Equals("Enemy"))
         {
@@ -30,10 +31,13 @@ public class Bullet : MonoBehaviour
                 if(enemyTower != null)
                 {
                     enemyTower.GetDamage(damage);
+                    Destroy(gameObject);
                 }
                 return;
             }
             enemy.GetDamage(damage);
+            Destroy(gameObject);
+            return;
         }
         
         if(!collision.gameObject.tag.Equals("Weapon"))

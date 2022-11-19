@@ -7,7 +7,7 @@ abstract public class Weapon : MonoBehaviour
     public TypeUser typeUser;
     public TypeAttack typeWeapon;
     public int damage;
-    [SerializeField] protected float cooldownAttack;
+    //[SerializeField] protected float cooldownAttack;
 
     public Animator anim;
     public BoxCollider2D colliderWeapon;

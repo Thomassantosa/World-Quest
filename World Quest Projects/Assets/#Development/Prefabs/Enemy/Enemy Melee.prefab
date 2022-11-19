@@ -191,7 +191,12 @@ MonoBehaviour:
   healthPoint: 100
   manaPoint: 100
   damage: 5
-  movementSpeed: 1
+  normalSpeed: 0
+  movementSpeed: 1.5
+  dashSpeed: 0
+  dashTime: 0
+  dashCooldown: 0
+  attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
   timeIdle: 3

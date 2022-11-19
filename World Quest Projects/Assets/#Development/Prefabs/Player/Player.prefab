@@ -74,6 +74,7 @@ MonoBehaviour:
   dashSpeed: 400
   dashTime: 0.2
   dashCooldown: 1
+  attackCooldown: 0.5
   isFaceRight: 0
   isIdle: 0
 --- !u!114 &6102385415640639330

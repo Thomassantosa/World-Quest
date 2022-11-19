@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     public CanvasManager canvas;
 
+
+    public PlayerControl player;
+
     private void Awake()
     {
         instance = this;
@@ -17,8 +20,4 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
 }

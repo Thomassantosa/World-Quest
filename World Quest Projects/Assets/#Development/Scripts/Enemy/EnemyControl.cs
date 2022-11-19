@@ -11,7 +11,7 @@ public class EnemyControl : MonoBehaviour
     public GameObject enemyAnim;
     public Rigidbody2D rB;
     [SerializeField] protected TypeAttack typeAttack;
-
+    
     [Header("Finding Player")]
     public float radiusFindPlayer;
     public LayerMask layerPlayer;

@@ -26,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
 
         weaponActive.Attack();
     }
-
     public void SetWeapon(Weapon weapon)
     {
         weapon.gameObject.SetActive(true);
@@ -97,14 +96,6 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Dash();
-    }
-    public void Dash()
-    {
-        PlayerControl.Instance.playerData.SetDash(true);
-    }
+
 }
 

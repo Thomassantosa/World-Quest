@@ -109,7 +109,7 @@ public class PlayerControl : MonoBehaviour
         else
         {
             playerData.SetHealthPoint(0);
-            Debug.LogError("Player Die");
+            Debug.LogWarning("Player Die");
         }
     }
 }

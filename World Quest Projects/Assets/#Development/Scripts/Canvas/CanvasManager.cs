@@ -13,9 +13,9 @@ public class CanvasManager : MonoBehaviour
     public GameObject panelLoading;
 
     public Button buttonDialog;
-    public Button buttonAttack;
+    public ButtonCooldown buttonAttack;
     public Button buttonChange;
-    public Button buttonDash;
+    public ButtonCooldown buttonDash;
 
     [Header("Movement")]
     public ButtonDPad dPadTop;
@@ -23,19 +23,37 @@ public class CanvasManager : MonoBehaviour
     public ButtonDPad dPadLeft;
     public ButtonDPad dPadRight;
 
-
-    void Start()
+    private void Start()
     {
-        
+        if (isCanvasMainMenu) return;
+
+        buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
+
+        buttonAttack.onCooldownStart.AddListener(PlayerControl.Instance.playerAttack.Attack);
+        buttonAttack.timeCooldown = GameManager.instance.player.playerData.attackCooldown;
+
+        buttonDash.onCooldownStart.AddListener(PlayerControl.Instance.playerData.PlayerDashTrue);
+        buttonDash.timeCooldown = GameManager.instance.player.playerData.dashCooldown;
     }
 
     private void OnEnable()
     {
-        if (isCanvasMainMenu) return;
+        /*if (isCanvasMainMenu) return;
 
         buttonAttack.onClick.AddListener(PlayerControl.Instance.playerAttack.Attack);
         buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
-        buttonDash.onClick.AddListener(PlayerControl.Instance.playerAttack.Dash);
+        buttonDash.onCooldownStart.AddListener(PlayerControl.Instance.playerData.PlayerDashTrue);
+        buttonDash.onCooldownDone.AddListener(PlayerControl.Instance.playerData.PlayerDashFalse);
+        buttonDash.timeCooldown = GameManager.instance.player.playerData.dashCooldown;*/
+
+    }
+
+    private void OnDisable()
+    {
+/*        buttonAttack.onClick.RemoveListener(PlayerControl.Instance.playerAttack.Attack);
+        buttonChange.onClick.RemoveListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
+        buttonDash.onCooldownStart.RemoveListener(PlayerControl.Instance.playerData.PlayerDashTrue);
+        buttonDash.onCooldownDone.RemoveListener(PlayerControl.Instance.playerData.PlayerDashFalse);*/
     }
 
     public void SetButtonDialog(NPCControl nPCControl)
@@ -102,5 +120,38 @@ public class CanvasManager : MonoBehaviour
             dPadTop.ButtonIsClick(false);
             dPadBottom.ButtonIsClick(false);
         }
+    }
+
+
+    public void UpdateHUDPlayer(PlayerControl player)
+    {
+        //if (player.playerData.IsDash())
+        //buttonDash.GetComponent<Image>().fillAmount = player.playerData.getd
+/*
+        if (isDash)
+        {
+            isDash = false;
+            if (_dashCooldown <= 0 && _dashTime <= 0)
+            {
+                Debug.LogWarning("Note: Tambahin Biar Imun Waktu Dash");
+
+                player.playerData.SetPlayerDash(true);
+            }
+        }
+
+        if (_dashTime > 0)
+        {
+            _dashTime -= Time.deltaTime;
+
+            if (_dashTime <= 0)
+            {
+                player.playerData.SetPlayerDash(false);
+            }
+        }
+
+        if (_dashCooldown > 0)
+        {
+            _dashCooldown -= Time.deltaTime;
+        }*/
     }
 }

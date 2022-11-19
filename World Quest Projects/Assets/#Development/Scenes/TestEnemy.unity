@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1455272938839806217, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1157541283}
     - target: {fileID: 1930823602993117349, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -658,10 +662,11 @@ MonoBehaviour:
   manaPoint: 100
   damage: 5
   normalSpeed: 0
-  movementSpeed: 2
+  movementSpeed: 0
   dashSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
   timeIdle: 3
@@ -1128,6 +1133,17 @@ Transform:
   m_Father: {fileID: 916416818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157541283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6102385415640639333, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
+  m_PrefabInstance: {fileID: 6102385417077979599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884d1a1bc543ad94fb83c151268b54bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1195978763
 GameObject:
   m_ObjectHideFlags: 0
@@ -52358,7 +52374,6 @@ MonoBehaviour:
   typeUser: 1
   typeWeapon: 1
   damage: 10
-  cooldownAttack: 0
   anim: {fileID: 0}
   colliderWeapon: {fileID: 1949188739}
   isActive: 1
@@ -52429,6 +52444,7 @@ MonoBehaviour:
   dashSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
   cam: {fileID: 67086419}
@@ -52878,10 +52894,11 @@ MonoBehaviour:
   manaPoint: 100
   damage: 5
   normalSpeed: 0
-  movementSpeed: 2
+  movementSpeed: 1.5
   dashSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
   timeIdle: 3
@@ -53060,6 +53077,7 @@ MonoBehaviour:
   dashSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
   cam: {fileID: 67086419}
@@ -53106,7 +53124,6 @@ MonoBehaviour:
   typeUser: 1
   typeWeapon: 1
   damage: 10
-  cooldownAttack: 0
   anim: {fileID: 0}
   colliderWeapon: {fileID: 2102051241802273558}
   isActive: 1

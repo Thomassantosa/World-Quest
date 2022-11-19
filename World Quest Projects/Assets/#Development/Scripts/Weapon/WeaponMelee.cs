@@ -19,14 +19,14 @@ public class WeaponMelee : Weapon
     public override void Attack()
     {
         Debug.Log("try attack");
-        if (isAttacking) return;
+        //if (isAttacking) return;
 
         Debug.Log("attack");
         isAttacking = true;
 
         colliderWeapon.enabled = true;
         Invoke(nameof(TurnOffCollider), durationAttack);
-        Invoke(nameof(CooldownDone), cooldownAttack);
+        //Invoke(nameof(CooldownDone), cooldownAttack);
 
         switch (typeMelee)
         {
@@ -43,10 +43,10 @@ public class WeaponMelee : Weapon
 
     }
 
-    public void CooldownDone()
+/*    public void CooldownDone()
     {
         isAttacking = false;
-    }
+    }*/
 
     private void TurnOffCollider()
     {
