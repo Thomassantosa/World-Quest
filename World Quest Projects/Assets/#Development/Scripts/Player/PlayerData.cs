@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+    public bool isPlayer;
     [Header("Main Data")]
     [SerializeField] private int healthPoint;
     [SerializeField] private int manaPoint;
@@ -31,16 +32,18 @@ public class PlayerData : MonoBehaviour
 
     public void SetHealthPoint(int healthPoint)
     {
+        Debug.Log("Get HP");
         if (healthPoint >= 100) healthPoint = 100;
         this.healthPoint = healthPoint;
-        GameManager.instance.canvas.canvasPlayer.SetHP(healthPoint);
+
+        if(isPlayer) GameManager.instance.canvas.canvasPlayer.SetHP(healthPoint);
     }
 
     public void SetManaPoint(int manaPoint)
     {
         if (manaPoint >= 100) manaPoint = 100;
         this.manaPoint = manaPoint;
-        GameManager.instance.canvas.canvasPlayer.SetMP(manaPoint);
+        if (isPlayer) GameManager.instance.canvas.canvasPlayer.SetMP(manaPoint);
     }
     public void SetExp(int exPoint)
     {
@@ -51,8 +54,10 @@ public class PlayerData : MonoBehaviour
             level++;
         }
         this.exPoint = exPoint;
-        GameManager.instance.canvas.canvasPlayer.SetEXP(exPoint, maxExp);
+        if (isPlayer) GameManager.instance.canvas.canvasPlayer.SetEXP(level,exPoint, maxExp);
     }
+
+
     public void SetMovementSpeed(float movementSpeed)
     {
         this.movementSpeed = movementSpeed;

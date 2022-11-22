@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4210127844897402445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.37, y: 0.83, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4210127842861222168}
@@ -168,7 +168,7 @@ MonoBehaviour:
   enemyAnim: {fileID: 4210127842861222170}
   rB: {fileID: 4210127844897402444}
   typeAttack: 0
-  radiusFindPlayer: 4
+  radiusFindPlayer: 2.5
   layerPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -188,17 +188,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dc56fde27c8e84e886a35778869f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 5
   normalSpeed: 0
-  movementSpeed: 1.5
+  movementSpeed: 1.3
   dashSpeed: 0
   dashTime: 0
   dashCooldown: 0
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
   timeIdle: 3
 --- !u!114 &4210127844897402442
 MonoBehaviour:

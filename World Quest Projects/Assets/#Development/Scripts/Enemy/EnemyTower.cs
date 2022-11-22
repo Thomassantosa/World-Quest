@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class EnemyTower : PlayerData
 {
-    public Camera cam;
-    [SerializeField] private float adjustRotation;
-
-    [Header("Profile")]
+    [Header("Tower")]
     public TypeUser typeUser;
     public Bullet objectBullet;
     public Transform posShot;
     [SerializeField] private int speedBullet;
+    [SerializeField] private float adjustRotation;
 
     [Header("Idle")]
     [SerializeField] private float cooldownIdle;

@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 1436232298218409566}
   - component: {fileID: 5781397681976549312}
   m_Layer: 5
-  m_Name: TBar HP
+  m_Name: Text Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4402,6 +4402,7 @@ MonoBehaviour:
   textMP: {fileID: 7522944784319693599}
   sliderEXP: {fileID: 8366909202548814302}
   textEXP: {fileID: 5799373593212454266}
+  textLevel: {fileID: 5781397681976549312}
 --- !u!114 &5355954307472572571
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class EnemyControl : MonoBehaviour
     {
         moveSpeed = enemyData.GetMovementSpeed();
         ChangeMovement();
-        UpdateDirectionFace(Vector3.zero);
+        UpdateDirectionFace(transform.position - (Vector3.right * -5));
     }
     protected void FindPlayer()
     {
@@ -170,6 +170,7 @@ public class EnemyControl : MonoBehaviour
         else
         {
             PlayerControl.Instance.GetExp(5);
+            GameManager.instance.EnemyDie();
             enemyData.SetHealthPoint(0);
             Destroy(gameObject);
         }

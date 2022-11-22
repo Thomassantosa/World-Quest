@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04be5e16e5911e4419474239deec4c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 1
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 0
   normalSpeed: 100
   movementSpeed: 0
@@ -77,6 +79,9 @@ MonoBehaviour:
   attackCooldown: 0.5
   isFaceRight: 0
   isIdle: 0
+  level: 1
+  maxExp: 100
+  incrementExp: 10
 --- !u!114 &6102385415640639330
 MonoBehaviour:
   m_ObjectHideFlags: 0

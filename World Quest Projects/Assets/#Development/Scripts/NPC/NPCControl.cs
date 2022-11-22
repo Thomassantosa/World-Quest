@@ -5,32 +5,63 @@ using TMPro;
 
 public class NPCControl : MonoBehaviour
 {
-    public GameObject canvasDialog;
+    public TypeNPC type;
+    public GameObject canvasPanel;
+    [Header("Change Scene")]
+    public string nameScene;
+    [Header("NPC Dialog")]
     public TMP_Text textDialog;
     public string dialogNPC;
 
     [SerializeField] private float timeDisplay;
     private float timeCounter;
+    private bool isDialogNPC;
     void Start()
     {
         
     }
     private void Update()
     {
+        if (!isDialogNPC) return;
+
         if (timeCounter > 0)
         {
             timeCounter -= Time.deltaTime;
-            canvasDialog.SetActive(true);
+            canvasPanel.SetActive(true);
         }
         else
         {
-            canvasDialog.SetActive(false);
+            canvasPanel.SetActive(false);
         }
     }
 
     public void ShowPanelDialog()
     {
-        textDialog.text = dialogNPC;
-        timeCounter = timeDisplay;
+        switch (type)
+        {
+            case TypeNPC.DIALOG:
+                textDialog.text = dialogNPC;
+                timeCounter = timeDisplay;
+                isDialogNPC = true;
+                break;
+            case TypeNPC.PANEL:
+                canvasPanel.SetActive(true);
+                break;
+            case TypeNPC.DOOR:
+                ManagerScene.instance.ChangeSceneDelay(nameScene);
+                break;
+            default:
+                break;
+        }
+
+        
+        
     }
+}
+
+public enum TypeNPC
+{
+    DIALOG,
+    PANEL,
+    DOOR
 }
