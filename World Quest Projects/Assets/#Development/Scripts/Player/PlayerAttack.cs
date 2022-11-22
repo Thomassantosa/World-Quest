@@ -26,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
 
         weaponActive.Attack();
     }
-
     public void SetWeapon(Weapon weapon)
     {
         weapon.gameObject.SetActive(true);
@@ -52,7 +51,6 @@ public class PlayerAttack : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
 
-            weapon.UseWeapon();
             weapon.SetIsActive(true);
             weaponCount++;
         }
@@ -98,5 +96,6 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
 }
 

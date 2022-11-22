@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
     }
     void Start()
     {
+        playerData.SetMovementSpeed(playerData.GetNormalSpeed());
     }
 
     // Update is called once per frame
@@ -108,7 +109,7 @@ public class PlayerControl : MonoBehaviour
         else
         {
             playerData.SetHealthPoint(0);
-            Debug.LogError("Player Die");
+            Debug.LogWarning("Player Die");
         }
     }
 }

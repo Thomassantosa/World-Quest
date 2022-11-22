@@ -7,6 +7,7 @@ abstract public class Weapon : MonoBehaviour
     public TypeUser typeUser;
     public TypeAttack typeWeapon;
     public int damage;
+    //[SerializeField] protected float cooldownAttack;
 
     public Animator anim;
     public BoxCollider2D colliderWeapon;
@@ -24,8 +25,14 @@ abstract public class Weapon : MonoBehaviour
         isActive = con;
     }
 
-    public void UseWeapon()
+    public void WeaponActive()
     {
+        colliderWeapon.enabled = true;
+    }
+
+    public void WeaponDeactive()
+    {
+        Debug.Log("Matiin colider");
         colliderWeapon.enabled = false;
     }
 
@@ -39,25 +46,40 @@ abstract public class Weapon : MonoBehaviour
             if (collision.gameObject.tag.Equals("Player"))
             {
                 collision.GetComponent<PlayerAttack>().GetWeapon(this);
-                UseWeapon();
+                WeaponDeactive();
             }
         }
         else
         {
 
-            if (typeUser == TypeUser.PLAYER)
+
+            if (collision.gameObject.tag.Equals("Enemy"))
             {
-                if (collision.gameObject.tag.Equals("Enemy"))
+                if (typeUser == TypeUser.ENEMY) return;
+
+                /*EnemyControl enemy = collision.GetComponent<EnemyControl>();
+                if (enemy == null) return;
+
+                enemy.GetDamage(damage);*/
+
+                EnemyControl enemy = collision.gameObject.GetComponent<EnemyControl>();
+                if (enemy == null)
                 {
-                    collision.GetComponent<EnemyControl>().GetDamage(damage);
+                    EnemyTower enemyTower = collision.gameObject.GetComponent<EnemyTower>();
+                    if (enemyTower != null)
+                    {
+                        enemyTower.GetDamage(damage);
+                    }
+                    return;
                 }
+                enemy.GetDamage(damage);
             }
-            else if (typeUser == TypeUser.ENEMY)
+            if (collision.gameObject.tag.Equals("Player"))
             {
-                if (collision.gameObject.tag.Equals("Player"))
-                {
-                    collision.GetComponent<PlayerControl>().GetDamage(damage);
-                }
+                if (typeUser == TypeUser.PLAYER) return;
+
+                collision.GetComponent<PlayerControl>().GetDamage(damage);
+
             }
         }
     }

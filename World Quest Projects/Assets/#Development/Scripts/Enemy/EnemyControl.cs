@@ -11,7 +11,7 @@ public class EnemyControl : MonoBehaviour
     public GameObject enemyAnim;
     public Rigidbody2D rB;
     [SerializeField] protected TypeAttack typeAttack;
-
+    
     [Header("Finding Player")]
     public float radiusFindPlayer;
     public LayerMask layerPlayer;
@@ -161,6 +161,9 @@ public class EnemyControl : MonoBehaviour
 
     public void GetDamage(int dmg)
     {
+        //Test
+        Destroy(gameObject);
+        return;
         int lastHealth = enemyData.GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {

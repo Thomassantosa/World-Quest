@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponMelee : Weapon
 {
     public TypeMelee typeMelee;
+    [SerializeField] private float durationAttack;
+    private bool isAttacking;
     void Start()
     {
         
@@ -16,6 +18,16 @@ public class WeaponMelee : Weapon
     }
     public override void Attack()
     {
+        Debug.Log("try attack");
+        //if (isAttacking) return;
+
+        Debug.Log("attack");
+        isAttacking = true;
+
+        colliderWeapon.enabled = true;
+        Invoke(nameof(TurnOffCollider), durationAttack);
+        //Invoke(nameof(CooldownDone), cooldownAttack);
+
         switch (typeMelee)
         {
             case TypeMelee.SWORD:
@@ -24,12 +36,27 @@ public class WeaponMelee : Weapon
             case TypeMelee.AXE:
                 anim.Play("Attack_Axe");
                 break;
+            case TypeMelee.SPEAR:
+                anim.Play("Attack_Spear");
+                break;
         }
+
+    }
+
+/*    public void CooldownDone()
+    {
+        isAttacking = false;
+    }*/
+
+    private void TurnOffCollider()
+    {
+        colliderWeapon.enabled = false;
     }
 }
 
 public enum TypeMelee
 {
     SWORD,
-    AXE
+    AXE,
+    SPEAR
 }
