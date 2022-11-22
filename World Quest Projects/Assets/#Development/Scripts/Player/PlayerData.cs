@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
     [Header("Main Data")]
     [SerializeField] private int healthPoint;
     [SerializeField] private int manaPoint;
+    [SerializeField] private int exPoint;
     [SerializeField] private int damage;
     [Header("Movement")]
     [SerializeField] private float normalSpeed;
@@ -17,19 +18,40 @@ public class PlayerData : MonoBehaviour
     private float _dashTime;
     private bool isDash;
 
+
     public float attackCooldown;
 
     public bool isFaceRight;
     public bool isIdle;
 
+    [Header("Level")]
+    [SerializeField] private int level;
+    [SerializeField] private int maxExp;
+    [SerializeField] private int incrementExp;
+
     public void SetHealthPoint(int healthPoint)
     {
+        if (healthPoint >= 100) healthPoint = 100;
         this.healthPoint = healthPoint;
+        GameManager.instance.canvas.canvasPlayer.SetHP(healthPoint);
     }
 
     public void SetManaPoint(int manaPoint)
     {
+        if (manaPoint >= 100) manaPoint = 100;
         this.manaPoint = manaPoint;
+        GameManager.instance.canvas.canvasPlayer.SetMP(manaPoint);
+    }
+    public void SetExp(int exPoint)
+    {
+        if (exPoint >= maxExp)
+        {
+            exPoint = 0;
+            maxExp += incrementExp;
+            level++;
+        }
+        this.exPoint = exPoint;
+        GameManager.instance.canvas.canvasPlayer.SetEXP(exPoint, maxExp);
     }
     public void SetMovementSpeed(float movementSpeed)
     {
@@ -62,6 +84,11 @@ public class PlayerData : MonoBehaviour
     {
         return manaPoint;
     }
+    public int GetExPoint()
+    {
+        return exPoint;
+    }
+
 
     private void Update()
     {

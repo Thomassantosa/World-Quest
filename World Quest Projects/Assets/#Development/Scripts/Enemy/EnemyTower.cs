@@ -100,8 +100,6 @@ public class EnemyTower : PlayerData
     public void GetDamage(int dmg)
     {
         //Test
-        Destroy(gameObject);
-        return;
         int lastHealth = GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {
@@ -109,6 +107,7 @@ public class EnemyTower : PlayerData
         }
         else
         {
+            PlayerControl.Instance.GetExp(5);
             SetHealthPoint(0);
             Destroy(gameObject);
         }

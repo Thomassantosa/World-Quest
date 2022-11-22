@@ -33,6 +33,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerData.SetMovementSpeed(playerData.GetNormalSpeed());
+        playerData.SetExp(0);
     }
 
     // Update is called once per frame
@@ -84,12 +85,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if(collision.tag.Equals("NPC"))
-        // {
-        //     npcActive = collision.GetComponent<NPCControl>();
-        //     GameManager.instance.canvas.SetButtonDialog(npcActive);
-        // }
-        if(collision.tag.Equals("Quest"))
+        if(collision.tag.Equals("NPC"))
         {
             npcActive = collision.GetComponent<NPCControl>();
             GameManager.instance.canvas.SetButtonDialog(npcActive);
@@ -116,5 +112,9 @@ public class PlayerControl : MonoBehaviour
             playerData.SetHealthPoint(0);
             Debug.LogWarning("Player Die");
         }
+    }
+    public void GetExp(int exp)
+    {
+        playerData.SetExp(playerData.GetExPoint() + exp);
     }
 }

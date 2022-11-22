@@ -8,7 +8,6 @@ TagManager:
   - NPC
   - Enemy
   - Weapon
-  - Quest
   layers:
   - Default
   - TransparentFX

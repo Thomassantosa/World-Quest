@@ -660,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 5
   normalSpeed: 0
   movementSpeed: 0
@@ -669,6 +670,9 @@ MonoBehaviour:
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
   timeIdle: 3
 --- !u!114 &435366310
 MonoBehaviour:
@@ -52438,6 +52442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 10
   normalSpeed: 0
   movementSpeed: 0
@@ -52447,6 +52452,9 @@ MonoBehaviour:
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
   cam: {fileID: 67086419}
   adjustRotation: 0
   typeUser: 0
@@ -52863,7 +52871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &489729532609744937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52892,6 +52900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 5
   normalSpeed: 0
   movementSpeed: 1.5
@@ -52901,6 +52910,9 @@ MonoBehaviour:
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
   timeIdle: 3
 --- !u!114 &489729532609744939
 MonoBehaviour:
@@ -53071,6 +53083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 100
   manaPoint: 100
+  exPoint: 0
   damage: 10
   normalSpeed: 0
   movementSpeed: 0
@@ -53080,6 +53093,9 @@ MonoBehaviour:
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
   cam: {fileID: 67086419}
   adjustRotation: 90
   typeUser: 1
@@ -53233,7 +53249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804319317620668501, guid: b8d3294bb163e514bad54478f17b1606, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5804319317620668501, guid: b8d3294bb163e514bad54478f17b1606, type: 3}
       propertyPath: m_TagString
@@ -53296,6 +53312,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
+      propertyPath: maxExp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
+      propertyPath: incrementExp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6102385415640639330, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
       propertyPath: weaponActive
       value: 

@@ -17,7 +17,8 @@ public class CanvasManager : MonoBehaviour
     public Button buttonChange;
     public ButtonCooldown buttonDash;
 
-    [Header("Movement")]
+    [Header("Player")]
+    public CanvasPlayer canvasPlayer;
     public ButtonDPad dPadTop;
     public ButtonDPad dPadBottom;
     public ButtonDPad dPadLeft;
