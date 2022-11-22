@@ -84,7 +84,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag.Equals("NPC"))
+        // if(collision.tag.Equals("NPC"))
+        // {
+        //     npcActive = collision.GetComponent<NPCControl>();
+        //     GameManager.instance.canvas.SetButtonDialog(npcActive);
+        // }
+        if(collision.tag.Equals("Quest"))
         {
             npcActive = collision.GetComponent<NPCControl>();
             GameManager.instance.canvas.SetButtonDialog(npcActive);
