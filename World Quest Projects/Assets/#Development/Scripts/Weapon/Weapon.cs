@@ -61,6 +61,7 @@ abstract public class Weapon : MonoBehaviour
                 if (enemy == null) return;
 
                 enemy.GetDamage(damage);*/
+                Debug.Log("Hit " + collision.name);
 
                 EnemyControl enemy = collision.gameObject.GetComponent<EnemyControl>();
                 if (enemy == null)
