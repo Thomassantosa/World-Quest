@@ -6,7 +6,7 @@ public class WeaponMelee : Weapon
 {
     public TypeMelee typeMelee;
     [SerializeField] private float durationAttack;
-    private bool isAttacking;
+    //private bool isAttacking;
     void Start()
     {
         
@@ -22,7 +22,7 @@ public class WeaponMelee : Weapon
         //if (isAttacking) return;
 
         Debug.Log("attack");
-        isAttacking = true;
+        //isAttacking = true;
 
         colliderWeapon.enabled = true;
         Invoke(nameof(TurnOffCollider), durationAttack);
