@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 6802132085004395239}
   player: {fileID: 0}
+  isGamePlay: 0
+  numOfEnemy: 0
+  areaBoss: {fileID: 0}
 --- !u!1 &4027370601751172768
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +88,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5670187456611078126}
     m_Modifications:
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 594406321301638675}
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSceneDelay
+      objectReference: {fileID: 0}
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ManagerScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Guild
+      objectReference: {fileID: 0}
+    - target: {fileID: 502297431797480715, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 907362628590216338, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_Value
       value: 100
@@ -265,12 +292,40 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6144132445592161552, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6480046599078288550, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6480046599078288550, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638743718054673791, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 594406321301638675}
+    - target: {fileID: 7638743718054673791, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638743718054673791, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ManagerScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638743718054673791, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697073243594396686, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_Name
+      value: Panel Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697073243594396686, guid: 1addb5c193f700044aa56a6097c30503, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8366909202548814302, guid: 1addb5c193f700044aa56a6097c30503, type: 3}

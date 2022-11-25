@@ -65,7 +65,7 @@ public class EnemyTower : PlayerData
     private void Shooting()
     {
         _cooldownShooting = cooldownShooting;
-        objectBullet.SetDamage((int)GetDamage());
+        objectBullet.SetDamage(GetDamage());
         GameObject newBullet = Instantiate(objectBullet.gameObject, posShot.position, posShot.rotation);
         Bullet scriptBullet = newBullet.GetComponent<Bullet>();
         scriptBullet.typeUser = typeUser;

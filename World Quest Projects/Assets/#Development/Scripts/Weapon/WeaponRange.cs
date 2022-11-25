@@ -10,8 +10,10 @@ public class WeaponRange : Weapon
     public Bullet bullet;
     public float speedBullet;
 
-    public override void Attack()
+    public override void Attack(int dmgPlayer)
     {
+        damagePlayer = dmgPlayer;
+
         Debug.Log("Attack Range");
         switch (typeRange)
         {
@@ -21,7 +23,7 @@ public class WeaponRange : Weapon
                 break;
         }
 
-        bullet.SetDamage(damage);
+        bullet.SetDamage(damage + damagePlayer);
         GameObject newBullet = Instantiate(bullet.gameObject, posShot.position, posShot.rotation);
         Bullet scriptBullet = newBullet.GetComponent<Bullet>();
         scriptBullet.typeUser = typeUser;

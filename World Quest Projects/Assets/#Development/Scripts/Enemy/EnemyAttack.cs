@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    public EnemyData data;
     public Transform posHand;
 
     public Weapon weaponActive;
@@ -26,7 +27,7 @@ public class EnemyAttack : MonoBehaviour
         if (!weaponActive)
             return;
 
-        weaponActive.Attack();
+        weaponActive.Attack(data.GetDamage());
     }
 
     public void SetWeapon(Weapon weapon)

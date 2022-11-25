@@ -11,7 +11,10 @@ public class EnemyControl : MonoBehaviour
     public GameObject enemyAnim;
     public Rigidbody2D rB;
     [SerializeField] protected TypeAttack typeAttack;
-    
+
+    [Header("Area")]
+    public AreaManager areaManager;
+
     [Header("Finding Player")]
     public float radiusFindPlayer;
     public LayerMask layerPlayer;
@@ -170,7 +173,7 @@ public class EnemyControl : MonoBehaviour
         else
         {
             PlayerControl.Instance.GetExp(5);
-            GameManager.instance.EnemyDie();
+            areaManager.EnemyDie();
             enemyData.SetHealthPoint(0);
             Destroy(gameObject);
         }

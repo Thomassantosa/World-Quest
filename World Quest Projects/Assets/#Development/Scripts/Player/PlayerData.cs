@@ -14,12 +14,22 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private float normalSpeed;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float dashSpeed;
+    [SerializeField] private float skillSpeed;
+    [Header("Dash")]
     public float dashTime;
     public float dashCooldown;
     private float _dashTime;
     private bool isDash;
 
+    [Header("Skill")]
+    [SerializeField] private bool skillActive;
+    [SerializeField] private int skillDamage;
+    public float skillTime;
+    public float skillCooldown;
+    private float _skillTime;
+    private bool isSkill;
 
+    [Header("Attack")]
     public float attackCooldown;
 
     public bool isFaceRight;
@@ -32,7 +42,6 @@ public class PlayerData : MonoBehaviour
 
     public void SetHealthPoint(int healthPoint)
     {
-        Debug.Log("Get HP");
         if (healthPoint >= 100) healthPoint = 100;
         this.healthPoint = healthPoint;
 
@@ -66,7 +75,7 @@ public class PlayerData : MonoBehaviour
     {
         this.damage = damage;
     }
-    public float GetDamage()
+    public int GetDamage()
     {
         return damage;
     }
@@ -94,9 +103,9 @@ public class PlayerData : MonoBehaviour
         return exPoint;
     }
 
-
     private void Update()
     {
+        //Dash
         if (isDash)
         {
             if (_dashTime > 0)
@@ -106,6 +115,20 @@ public class PlayerData : MonoBehaviour
                 if (_dashTime <= 0)
                 {
                     PlayerDashFalse();
+                }
+            }
+        }
+
+        //Skill
+        if (isSkill)
+        {
+            if (_skillTime > 0)
+            {
+                _skillTime -= Time.deltaTime;
+
+                if (_skillTime <= 0)
+                {
+                    PlayerSkillFalse();
                 }
             }
         }
@@ -123,5 +146,24 @@ public class PlayerData : MonoBehaviour
         _dashTime = 0;
         movementSpeed = normalSpeed;
         isDash = false;
+    }
+
+    public void PlayerSkillTrue()
+    {
+        _skillTime = skillTime;
+        skillActive = true;
+        isSkill = true;
+
+        movementSpeed = skillSpeed;
+        damage += skillDamage;
+    }
+    public void PlayerSkillFalse()
+    {
+        _skillTime = 0;
+        skillActive = false;
+        isSkill = false;
+
+        movementSpeed = normalSpeed;
+        damage -= skillDamage;
     }
 }

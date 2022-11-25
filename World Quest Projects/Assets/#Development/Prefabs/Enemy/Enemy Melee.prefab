@@ -168,6 +168,7 @@ MonoBehaviour:
   enemyAnim: {fileID: 4210127842861222170}
   rB: {fileID: 4210127844897402444}
   typeAttack: 0
+  areaManager: {fileID: 0}
   radiusFindPlayer: 2.5
   layerPlayer:
     serializedVersion: 2
@@ -196,8 +197,13 @@ MonoBehaviour:
   normalSpeed: 0
   movementSpeed: 1.3
   dashSpeed: 0
+  skillSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  skillActive: 0
+  skillDamage: 0
+  skillTime: 0
+  skillCooldown: 0
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
@@ -217,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0104fcff46d6a64da77c9346e0b40b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 4210127844897402441}
   posHand: {fileID: 4210127844622508661}
   weaponActive: {fileID: 8208385838556233923}
 --- !u!61 &4210127844897402443
@@ -273,6 +280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4210127844622508661}
     m_Modifications:
+    - target: {fileID: 4772434599529826613, guid: 6cc31caba1071c94c9694ec42eca6d15, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5442436983208589316, guid: 6cc31caba1071c94c9694ec42eca6d15, type: 3}
       propertyPath: isActive
       value: 1

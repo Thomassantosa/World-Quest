@@ -7,6 +7,7 @@ abstract public class Weapon : MonoBehaviour
     public TypeUser typeUser;
     public TypeAttack typeWeapon;
     public int damage;
+    public int damagePlayer;
     //[SerializeField] protected float cooldownAttack;
 
     public Animator anim;
@@ -36,13 +37,16 @@ abstract public class Weapon : MonoBehaviour
         colliderWeapon.enabled = false;
     }
 
-    abstract public void Attack();
+    abstract public void Attack(int dmgPlayer);
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag.Equals("Weapon")) return;
+
         if (!isActive)
         {
+            Debug.Log("No Active - Hit " + collision.name);
             if (collision.gameObject.tag.Equals("Player"))
             {
                 collision.GetComponent<PlayerAttack>().GetWeapon(this);
@@ -52,16 +56,16 @@ abstract public class Weapon : MonoBehaviour
         else
         {
 
+            Debug.Log("Hit " + collision.name);
 
             if (collision.gameObject.tag.Equals("Enemy"))
             {
-                if (typeUser == TypeUser.ENEMY) return;
+                Debug.Log("Hit Enemy");
 
                 /*EnemyControl enemy = collision.GetComponent<EnemyControl>();
                 if (enemy == null) return;
 
                 enemy.GetDamage(damage);*/
-                Debug.Log("Hit " + collision.name);
 
                 EnemyControl enemy = collision.gameObject.GetComponent<EnemyControl>();
                 if (enemy == null)
@@ -69,17 +73,17 @@ abstract public class Weapon : MonoBehaviour
                     EnemyTower enemyTower = collision.gameObject.GetComponent<EnemyTower>();
                     if (enemyTower != null)
                     {
-                        enemyTower.GetDamage(damage);
+                        enemyTower.GetDamage(damage + damagePlayer);
                     }
                     return;
                 }
-                enemy.GetDamage(damage);
+                enemy.GetDamage(damage + damagePlayer);
             }
             if (collision.gameObject.tag.Equals("Player"))
             {
                 if (typeUser == TypeUser.PLAYER) return;
 
-                collision.GetComponent<PlayerControl>().GetDamage(damage);
+                collision.GetComponent<PlayerControl>().GetDamage(damage + damagePlayer);
 
             }
         }

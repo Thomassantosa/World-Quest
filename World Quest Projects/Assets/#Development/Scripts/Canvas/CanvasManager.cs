@@ -11,11 +11,15 @@ public class CanvasManager : MonoBehaviour
     [Header("Panel")]
     public GameObject panelSetting;
     public GameObject panelLoading;
+    public GameObject panelMassage;
+    public GameObject panelLose;
+    public GameObject panelWin;
 
     public Button buttonDialog;
     public ButtonCooldown buttonAttack;
     public Button buttonChange;
     public ButtonCooldown buttonDash;
+    public ButtonCooldown buttonSkill;
 
     [Header("Player")]
     public CanvasPlayer canvasPlayer;
@@ -35,26 +39,10 @@ public class CanvasManager : MonoBehaviour
 
         buttonDash.onCooldownStart.AddListener(PlayerControl.Instance.playerData.PlayerDashTrue);
         buttonDash.timeCooldown = GameManager.instance.player.playerData.dashCooldown;
-    }
 
-    private void OnEnable()
-    {
-        /*if (isCanvasMainMenu) return;
 
-        buttonAttack.onClick.AddListener(PlayerControl.Instance.playerAttack.Attack);
-        buttonChange.onClick.AddListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
-        buttonDash.onCooldownStart.AddListener(PlayerControl.Instance.playerData.PlayerDashTrue);
-        buttonDash.onCooldownDone.AddListener(PlayerControl.Instance.playerData.PlayerDashFalse);
-        buttonDash.timeCooldown = GameManager.instance.player.playerData.dashCooldown;*/
-
-    }
-
-    private void OnDisable()
-    {
-/*        buttonAttack.onClick.RemoveListener(PlayerControl.Instance.playerAttack.Attack);
-        buttonChange.onClick.RemoveListener(PlayerControl.Instance.playerAttack.ChangeWeapon);
-        buttonDash.onCooldownStart.RemoveListener(PlayerControl.Instance.playerData.PlayerDashTrue);
-        buttonDash.onCooldownDone.RemoveListener(PlayerControl.Instance.playerData.PlayerDashFalse);*/
+        buttonSkill.onCooldownStart.AddListener(PlayerControl.Instance.playerData.PlayerSkillTrue);
+        buttonSkill.timeCooldown = GameManager.instance.player.playerData.skillCooldown;
     }
 
     public void SetButtonDialog(NPCControl nPCControl)
@@ -78,7 +66,18 @@ public class CanvasManager : MonoBehaviour
     {
         panelSetting.SetActive(con);
     }
-
+    public void PanelLose(bool con)
+    {
+        panelLose.SetActive(con);
+    }
+    public void PanelWin(bool con)
+    {
+        panelWin.SetActive(con);
+    }
+    public void PanelMassage(bool con)
+    {
+        panelMassage.SetActive(con);
+    }
     public void SetDPad(float valX, float valY)
     {
         if ((valX > -0.1f && valX < 0.1f) && (valY > -0.1f && valY < 0.1f))

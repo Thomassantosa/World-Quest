@@ -24,7 +24,11 @@ public class PlayerAttack : MonoBehaviour
         if (!weaponActive)
             return;
 
-        weaponActive.Attack();
+        weaponActive.Attack(PlayerControl.Instance.playerData.GetDamage());
+    }
+    public void Skill()
+    {
+
     }
     public void SetWeapon(Weapon weapon)
     {

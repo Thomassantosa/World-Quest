@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("GamePlay")]
     public bool isGamePlay;
     public int numOfEnemy;
+    public GameObject areaBoss;
 
     private void Awake()
     {
@@ -26,8 +27,15 @@ public class GameManager : MonoBehaviour
         numOfEnemy--;
         if(numOfEnemy <= 0)
         {
-            Debug.Log("Game Selesai");
+            Debug.Log("Game Selesai");//Spawn Boss
+            canvas.PanelMassage(true);
+            SpawnBoss();
         }
+    }
+
+    public void SpawnBoss()
+    {
+        areaBoss.SetActive(true);
     }
 
 }

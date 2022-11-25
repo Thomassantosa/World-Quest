@@ -56,8 +56,13 @@ MonoBehaviour:
   normalSpeed: 0
   movementSpeed: 0
   dashSpeed: 0
+  skillSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  skillActive: 0
+  skillDamage: 0
+  skillTime: 0
+  skillCooldown: 0
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
@@ -133,6 +138,7 @@ MonoBehaviour:
   typeUser: 1
   typeWeapon: 1
   damage: 10
+  damagePlayer: 0
   anim: {fileID: 0}
   colliderWeapon: {fileID: 3209718158480781093}
   isActive: 1
@@ -306,6 +312,7 @@ MonoBehaviour:
   enemyAnim: {fileID: 3993311562765417400}
   rB: {fileID: 3993311561240144916}
   typeAttack: 0
+  areaManager: {fileID: 0}
   radiusFindPlayer: 3
   layerPlayer:
     serializedVersion: 2
@@ -335,8 +342,13 @@ MonoBehaviour:
   normalSpeed: 0
   movementSpeed: 1.3
   dashSpeed: 0
+  skillSpeed: 0
   dashTime: 0
   dashCooldown: 0
+  skillActive: 0
+  skillDamage: 0
+  skillTime: 0
+  skillCooldown: 0
   attackCooldown: 0
   isFaceRight: 0
   isIdle: 0
@@ -356,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0104fcff46d6a64da77c9346e0b40b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 3993311561240144921}
   posHand: {fileID: 3993311561971381830}
   weaponActive: {fileID: 557456964835612167}
 --- !u!61 &3993311561240144917
@@ -397,12 +410,12 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
-  m_SleepingMode: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &3993311561971381829

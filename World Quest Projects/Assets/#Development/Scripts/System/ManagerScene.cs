@@ -13,7 +13,12 @@ public class ManagerScene : MonoBehaviour
         instance = this;
     }
 
-
+    public void Retry()
+    {
+        nameScene = SceneManager.GetActiveScene().name;
+        GameManager.instance.canvas.PanelLoading(true);
+        Invoke(nameof(ChangeScene), timeDelay);
+    }
     public void ChangeSceneDelay(string nameScene)
     {
         this.nameScene = nameScene;

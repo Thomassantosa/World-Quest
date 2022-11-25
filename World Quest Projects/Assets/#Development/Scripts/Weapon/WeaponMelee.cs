@@ -16,13 +16,9 @@ public class WeaponMelee : Weapon
     {
         
     }
-    public override void Attack()
+    public override void Attack(int dmgPlayer)
     {
-        Debug.Log("try attack");
-        //if (isAttacking) return;
-
-        Debug.Log("attack");
-        //isAttacking = true;
+        damagePlayer = dmgPlayer;
 
         colliderWeapon.enabled = true;
         Invoke(nameof(TurnOffCollider), durationAttack);
