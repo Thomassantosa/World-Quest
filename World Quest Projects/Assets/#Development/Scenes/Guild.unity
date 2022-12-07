@@ -317,10 +317,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1520017357}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 255029881}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GetQuest
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -342,6 +342,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 2056136800}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1520017357}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1288,6 +1300,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 89805387009952899, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 431138992817623742, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1455272938839806217, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: player
       value: 
@@ -1356,6 +1376,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6018261590361405687, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229759367784833573, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6763515581991279507, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1363,6 +1391,22 @@ PrefabInstance:
     - target: {fileID: 6763515581991279507, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212481607612083417, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570819256910640076, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787367118973902727, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060096149756737085, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
@@ -1382,6 +1426,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2626443059854894934, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
   m_PrefabInstance: {fileID: 255029878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &255029881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1455272938839806217, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+  m_PrefabInstance: {fileID: 255029878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e426b42840b42c94c85eb410278e08c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261939683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5956,7 +6011,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1101448047}
   m_OnClick:
     m_PersistentCalls:
@@ -23808,7 +23863,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1822629331}
   m_OnClick:
     m_PersistentCalls:
@@ -24695,7 +24750,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1915514234}
   m_OnClick:
     m_PersistentCalls:

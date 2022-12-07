@@ -35,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
         weapon.gameObject.SetActive(true);
 
         weaponActive = weapon;
+        weaponActive.SetIsActive(true);
         weaponActive.transform.position = posHand.position;
         weaponActive.transform.parent = posHand;
     }

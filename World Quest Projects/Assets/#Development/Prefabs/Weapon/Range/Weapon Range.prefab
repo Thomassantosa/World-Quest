@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3899191458280902034}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2396601597654234876
 GameObject:
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4457925636238937237}
   - component: {fileID: 959859175375403541}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Weapon Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3899191458280902034}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135.12}
 --- !u!212 &959859175375403541
 SpriteRenderer:
@@ -98,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1395449485
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2036968db7430d4a8ed3ed77cfaa2f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3899191458151803876}
   - component: {fileID: 3899191458151803879}
   m_Layer: 0
-  m_Name: Sprites
+  m_Name: Tambahan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3899191458280902034}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3899191458151803879
 SpriteRenderer:
@@ -180,9 +180,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: -1395449485
+  m_SortingLayer: 3
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9fbc465a093d97343abfc71111e061cc, type: 3}
   m_Color: {r: 0.5137255, g: 0.37647063, b: 0.054901965, a: 1}
   m_FlipX: 0
@@ -223,9 +223,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.75, z: 1}
   m_Children:
+  - {fileID: 4457925636238937237}
   - {fileID: 3899191458151803876}
   - {fileID: 1515640622}
-  - {fileID: 4457925636238937237}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,6 +244,7 @@ MonoBehaviour:
   typeUser: 0
   typeWeapon: 1
   damage: 10
+  damagePlayer: 0
   anim: {fileID: 0}
   colliderWeapon: {fileID: 2102051242650121399}
   isActive: 0

@@ -74,8 +74,13 @@ MonoBehaviour:
   normalSpeed: 100
   movementSpeed: 0
   dashSpeed: 400
+  skillSpeed: 200
   dashTime: 0.2
   dashCooldown: 1
+  skillActive: 0
+  skillDamage: 0
+  skillTime: 0
+  skillCooldown: 0
   attackCooldown: 0.5
   isFaceRight: 0
   isIdle: 0
