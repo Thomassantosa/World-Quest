@@ -17,6 +17,7 @@ public class TriggerArea : MonoBehaviour
             isActive = true;
             area.SetActive(true);
             objectLocked.SetActive(true);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 

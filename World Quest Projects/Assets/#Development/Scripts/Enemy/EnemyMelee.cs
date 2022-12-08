@@ -17,6 +17,8 @@ public class EnemyMelee : EnemyControl
     {
         UpdateMovement();
         UpdateRotationWeapon();
+
+        UpdateEffectHit();
     }
 
     public override void UpdateMovementTarget()

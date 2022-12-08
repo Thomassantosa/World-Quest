@@ -79,7 +79,7 @@ MonoBehaviour:
   layerPlayer:
     serializedVersion: 2
     m_Bits: 8
-  cooldownShooting: 4
+  cooldownShooting: 2
   targetPlayer: {fileID: 0}
 --- !u!61 &3209718158480781093
 BoxCollider2D:
@@ -311,6 +311,7 @@ MonoBehaviour:
   enemyAttack: {fileID: 3993311561240144922}
   enemyAnim: {fileID: 3993311562765417400}
   rB: {fileID: 3993311561240144916}
+  sprite: {fileID: 3993311562765417402}
   typeAttack: 1
   listItem:
   - {fileID: 2564480947525261570, guid: 7e8e52def60563345aaadfc1383ebe89, type: 3}
@@ -319,7 +320,8 @@ MonoBehaviour:
   - {fileID: 7834999761515850384, guid: abf8ee7b3ddd3a94783830359504518e, type: 3}
   - {fileID: 2377056882820284242, guid: f30b3da0aadcec241bdd60c60529940e, type: 3}
   maxItemDrop: 15
-  forceDrop: 1
+  isImmune: 0
+  durationGetHit: 0.3
   areaManager: {fileID: 0}
   radiusFindPlayer: 5
   layerPlayer:

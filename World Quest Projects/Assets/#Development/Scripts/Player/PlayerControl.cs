@@ -12,11 +12,20 @@ public class PlayerControl : MonoBehaviour
     public PlayerData playerData;
     public PlayerAttack playerAttack;
 
+    [Header("Main Variable")]
+    public bool isImmune;
+
+    [Header("Effect")]
+    public float durationGetHit;
+    private float _durationGetHit;
+
     [Header("Movement")]
     public VariableJoystick joystick;
 
     [Header("Animation")]
-    public GameObject playerSprite;
+    public SpriteRenderer playerSprite;
+
+
 
     private Rigidbody2D rB;
 
@@ -73,6 +82,9 @@ public class PlayerControl : MonoBehaviour
             UpdateDirectionFace();
             playerAttack.UpdateRotationWeapon(moveDirect);
         }
+
+
+        UpdateEffectHit();
     }
 
     public void UpdateDirectionFace()
@@ -126,6 +138,9 @@ public class PlayerControl : MonoBehaviour
     }
     public void GetDamage(int dmg)
     {
+        if (isImmune) return;
+
+        EffectHitActive();
         int lastHealth = playerData.GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {
@@ -140,5 +155,32 @@ public class PlayerControl : MonoBehaviour
     public void GetExp(int exp)
     {
         playerData.SetExp(playerData.GetExPoint() + exp);
+    }
+
+    //Effect
+    public void UpdateEffectHit()
+    {
+        if (!isImmune) return;
+
+        if (_durationGetHit > 0)
+        {
+            _durationGetHit -= Time.deltaTime;
+        }
+        else
+        {
+            EffectHitEnd();
+        }
+    }
+    //Effect
+    public void EffectHitActive()
+    {
+        _durationGetHit = durationGetHit;
+        playerSprite.color = new Color(255, 0, 0);
+        isImmune = true;
+    }
+    public void EffectHitEnd()
+    {
+        playerSprite.color = Color.white;
+        isImmune = false;
     }
 }

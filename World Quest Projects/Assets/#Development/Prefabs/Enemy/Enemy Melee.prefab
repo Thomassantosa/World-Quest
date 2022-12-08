@@ -167,6 +167,7 @@ MonoBehaviour:
   enemyAttack: {fileID: 4210127844897402442}
   enemyAnim: {fileID: 4210127842861222170}
   rB: {fileID: 4210127844897402444}
+  sprite: {fileID: 4210127842861222169}
   typeAttack: 0
   listItem:
   - {fileID: 2564480947525261570, guid: 7e8e52def60563345aaadfc1383ebe89, type: 3}
@@ -175,7 +176,8 @@ MonoBehaviour:
   - {fileID: 7834999761515850384, guid: abf8ee7b3ddd3a94783830359504518e, type: 3}
   - {fileID: 2377056882820284242, guid: f30b3da0aadcec241bdd60c60529940e, type: 3}
   maxItemDrop: 10
-  forceDrop: 200
+  isImmune: 0
+  durationGetHit: 0.3
   areaManager: {fileID: 0}
   radiusFindPlayer: 2.5
   layerPlayer:

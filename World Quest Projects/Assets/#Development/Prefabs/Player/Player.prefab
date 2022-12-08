@@ -51,8 +51,10 @@ MonoBehaviour:
   type: 0
   playerData: {fileID: 3696465289501447530}
   playerAttack: {fileID: 6102385415640639330}
+  isImmune: 0
+  durationGetHit: 0.4
   joystick: {fileID: 0}
-  playerSprite: {fileID: 6102385416096362699}
+  playerSprite: {fileID: 6102385416096362697}
   npcActive: {fileID: 0}
 --- !u!114 &3696465289501447530
 MonoBehaviour:
