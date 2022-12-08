@@ -11,6 +11,14 @@ public class EnemyTower : PlayerData
     [SerializeField] private int speedBullet;
     [SerializeField] private float adjustRotation;
 
+    [Header("Main Variable")]
+    public bool isImmune;
+
+    [Header("Effect")]
+    public SpriteRenderer sprite;
+    public float durationGetHit;
+    private float _durationGetHit;
+
     [Header("Idle")]
     [SerializeField] private float cooldownIdle;
     private float _cooldownIdle;
@@ -23,7 +31,7 @@ public class EnemyTower : PlayerData
     public Transform targetPlayer;
     void Start()
     {
-        
+        _cooldownShooting = Random.Range(cooldownShooting, cooldownShooting * 2);
     }
 
     void Update()
@@ -44,6 +52,8 @@ public class EnemyTower : PlayerData
             SetTargetRandom();
             targetPlayer = null;
         }
+
+        UpdateEffectHit();
     }
 
     public void FoundPlayer(GameObject objectPlayer)
@@ -97,7 +107,9 @@ public class EnemyTower : PlayerData
     }
     public void GetDamage(int dmg)
     {
-        //Test
+        if (isImmune) return;
+        EffectHitActive();
+
         int lastHealth = GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {
@@ -117,5 +129,29 @@ public class EnemyTower : PlayerData
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radiusFindPlayer);
     }
+    public void UpdateEffectHit()
+    {
+        if (!isImmune) return;
 
+        if (_durationGetHit > 0)
+        {
+            _durationGetHit -= Time.deltaTime;
+        }
+        else
+        {
+            EffectHitEnd();
+        }
+    }
+    //Effect
+    public void EffectHitActive()
+    {
+        _durationGetHit = durationGetHit;
+        sprite.color = new Color(255, 0, 0);
+        isImmune = true;
+    }
+    public void EffectHitEnd()
+    {
+        sprite.color = Color.white;
+        isImmune = false;
+    }
 }
