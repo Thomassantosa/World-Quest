@@ -75,6 +75,15 @@ abstract public class Weapon : MonoBehaviour
                     {
                         enemyTower.GetDamage(damage + damagePlayer);
                     }
+                    else
+                    {
+                        BossControl bossControl = collision.gameObject.GetComponent<BossControl>();
+                        if (bossControl != null)
+                        {
+                            Debug.Log("Dmg Bos");
+                            bossControl.GetDamage(damage);
+                        }
+                    }
                     return;
                 }
                 enemy.GetDamage(damage + damagePlayer);

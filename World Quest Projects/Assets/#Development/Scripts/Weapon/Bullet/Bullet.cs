@@ -40,6 +40,16 @@ public class Bullet : MonoBehaviour
                     enemyTower.GetDamage(damage);
                     Destroy(gameObject);
                 }
+                else
+                {
+                    BossControl bossControl = collision.gameObject.GetComponent<BossControl>();
+                    if(bossControl != null)
+                    {
+                        Debug.Log("Dmg Bos");
+                        bossControl.GetDamage(damage);
+                        Destroy(gameObject);
+                    }
+                }
                 return;
             }
             Debug.Log("Dmg Enemy");
