@@ -48,7 +48,14 @@ public class NPCControl : MonoBehaviour
                 canvasPanel.SetActive(true);
                 break;
             case TypeNPC.DOOR:
-                ManagerScene.instance.ChangeSceneDelay(nameScene);
+                if (GameManager.instance.haveQuest == 0)
+                {
+                    GameManager.instance.canvas.PanelMassage(true, "you don't have a quest");
+                }
+                else
+                {
+                    ManagerScene.instance.ChangeSceneDelay(nameScene);
+                }
                 break;
             default:
                 break;

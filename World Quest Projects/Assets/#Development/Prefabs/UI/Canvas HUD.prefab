@@ -2038,6 +2038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7908554940022930939}
+  - component: {fileID: 5950157691551064813}
   - component: {fileID: 3228011439129692649}
   m_Layer: 5
   m_Name: Panel Massage
@@ -2067,6 +2068,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5950157691551064813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281728907005915330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4e2bd53f2d54c4d9f22b862eef6484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMassage: {fileID: 241750370307917306}
 --- !u!222 &3228011439129692649
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5220,7 +5234,7 @@ MonoBehaviour:
   isCanvasMainMenu: 0
   panelSetting: {fileID: 2221490548054200422}
   panelLoading: {fileID: 5999822000249444795}
-  panelMassage: {fileID: 1281728907005915330}
+  panelMassage: {fileID: 5950157691551064813}
   panelLose: {fileID: 7697073243594396686}
   panelWin: {fileID: 1514629066328831813}
   buttonDialog: {fileID: 229781869957913544}
@@ -10613,13 +10627,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94209a5dadcf23540a04fa13b47c4ff8, type: 3}
---- !u!224 &3407799011437237378 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6253047680727594776, guid: 94209a5dadcf23540a04fa13b47c4ff8, type: 3}
-  m_PrefabInstance: {fileID: 8758840026566878106}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5999822000249444795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3084403667404388897, guid: 94209a5dadcf23540a04fa13b47c4ff8, type: 3}
+  m_PrefabInstance: {fileID: 8758840026566878106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3407799011437237378 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6253047680727594776, guid: 94209a5dadcf23540a04fa13b47c4ff8, type: 3}
   m_PrefabInstance: {fileID: 8758840026566878106}
   m_PrefabAsset: {fileID: 0}

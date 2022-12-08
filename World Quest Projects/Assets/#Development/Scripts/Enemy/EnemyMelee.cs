@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyMelee : EnemyControl
 {
+    public float cooldownAttack;
+    private bool waitingForAttack;
+    private float distance;
     private void Start()
     {
         Init();
@@ -18,15 +21,30 @@ public class EnemyMelee : EnemyControl
 
     public override void UpdateMovementTarget()
     {
-        if (Vector3.Distance(transform.position, targetPlayer.position) > minDistance)
+        distance = Vector3.Distance(transform.position, targetPlayer.position);
+        /*        Vector2 direction = targetPlayer.position - transform.position;
+                direction.Normalize();
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        */
+        if (waitingForAttack) return;
+
+        if (distance > minDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }else
         {
-            IdleIsTrue();
-            enemyAttack.Attack();
+            waitingForAttack = true;
+            Invoke(nameof(ReadyForAttack), Random.Range(cooldownAttack, cooldownAttack * 2));
         }
 
+    }
+
+    private void ReadyForAttack()
+    {
+        enemyAttack.Attack();
+        IdleIsTrue();
+        waitingForAttack = false;
     }
 
 }

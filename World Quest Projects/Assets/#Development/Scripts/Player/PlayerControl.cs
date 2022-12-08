@@ -39,8 +39,32 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+#if UNITY_EDITOR
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            playerData.PlayerDashTrue();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            playerAttack.ChangeWeapon();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            playerData.PlayerSkillTrue();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerAttack.Attack();
+        }
+#elif UNITY_ANDORID
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
+#endif
+
         moveDirect = new Vector2(moveX, moveY);
         GameManager.instance.canvas.SetDPad(moveX, moveY);
 

@@ -12,6 +12,10 @@ public class EnemyControl : MonoBehaviour
     public Rigidbody2D rB;
     [SerializeField] protected TypeAttack typeAttack;
 
+    [Header("Item Drop")]
+    public Item[] listItem;
+    public int maxItemDrop;
+
     [Header("Area")]
     public AreaManager areaManager;
 
@@ -108,7 +112,8 @@ public class EnemyControl : MonoBehaviour
     protected void IdleIsTrue()
     {
         enemyData.isIdle = true;
-        counterTimeIdle = enemyData.GetTimeIdle();
+        float timeCd = enemyData.GetTimeIdle();
+        counterTimeIdle = Random.Range(timeCd, timeCd * 2);
     }
 
     protected void UpdateDirectionFace(Vector3 target)
@@ -172,6 +177,8 @@ public class EnemyControl : MonoBehaviour
         }
         else
         {
+            DropItem();
+
             PlayerControl.Instance.GetExp(5);
             areaManager.EnemyDie();
             enemyData.SetHealthPoint(0);
@@ -189,5 +196,18 @@ public class EnemyControl : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radiusFindPlayer);
+    }
+
+    public void DropItem()
+    {
+        int countDrop = Random.Range(0, maxItemDrop);
+        for (int i = 0; i < countDrop; i++)
+        {
+            Instantiate(
+                listItem[Random.Range(0, listItem.Length)].gameObject, 
+                transform.position, 
+                Quaternion.identity);
+
+        }
     }
 }

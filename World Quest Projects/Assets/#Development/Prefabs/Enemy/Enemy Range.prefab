@@ -75,11 +75,11 @@ MonoBehaviour:
   speedBullet: 5
   adjustRotation: 90
   cooldownIdle: 5
-  radiusFindPlayer: 2.5
+  radiusFindPlayer: 3
   layerPlayer:
     serializedVersion: 2
     m_Bits: 8
-  cooldownShooting: 3
+  cooldownShooting: 4
   targetPlayer: {fileID: 0}
 --- !u!61 &3209718158480781093
 BoxCollider2D:
@@ -311,13 +311,21 @@ MonoBehaviour:
   enemyAttack: {fileID: 3993311561240144922}
   enemyAnim: {fileID: 3993311562765417400}
   rB: {fileID: 3993311561240144916}
-  typeAttack: 0
+  typeAttack: 1
+  listItem:
+  - {fileID: 2564480947525261570, guid: 7e8e52def60563345aaadfc1383ebe89, type: 3}
+  - {fileID: 5433747537325357398, guid: 31d67d4f2a254994ba3f0d25dc2c21ef, type: 3}
+  - {fileID: 1642869237399707579, guid: 4ae88045fec5448419d0fb9f1064148f, type: 3}
+  - {fileID: 7834999761515850384, guid: abf8ee7b3ddd3a94783830359504518e, type: 3}
+  - {fileID: 2377056882820284242, guid: f30b3da0aadcec241bdd60c60529940e, type: 3}
+  maxItemDrop: 15
+  forceDrop: 1
   areaManager: {fileID: 0}
-  radiusFindPlayer: 3
+  radiusFindPlayer: 5
   layerPlayer:
     serializedVersion: 2
     m_Bits: 8
-  minDistance: 4
+  minDistance: 2.75
   counterTimeIdle: 0
   numberPath: 1
   targetPlayer: {fileID: 0}
@@ -340,7 +348,7 @@ MonoBehaviour:
   exPoint: 0
   damage: 5
   normalSpeed: 0
-  movementSpeed: 1.3
+  movementSpeed: 1
   dashSpeed: 0
   skillSpeed: 0
   dashTime: 0

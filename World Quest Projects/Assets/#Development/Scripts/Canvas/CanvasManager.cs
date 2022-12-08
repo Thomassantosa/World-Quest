@@ -11,7 +11,7 @@ public class CanvasManager : MonoBehaviour
     [Header("Panel")]
     public GameObject panelSetting;
     public GameObject panelLoading;
-    public GameObject panelMassage;
+    public PanelMassage panelMassage;
     public GameObject panelLose;
     public GameObject panelWin;
 
@@ -74,9 +74,10 @@ public class CanvasManager : MonoBehaviour
     {
         panelWin.SetActive(con);
     }
-    public void PanelMassage(bool con)
+    public void PanelMassage(bool con, string stringMassage = "")
     {
-        panelMassage.SetActive(con);
+        panelMassage.gameObject.SetActive(con);
+        if(con) panelMassage.SetText(stringMassage);
     }
     public void SetDPad(float valX, float valY)
     {

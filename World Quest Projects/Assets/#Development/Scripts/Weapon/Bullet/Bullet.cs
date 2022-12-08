@@ -6,6 +6,10 @@ public class Bullet : MonoBehaviour
 {
     public TypeUser typeUser;
     public int damage;
+    private void Start()
+    {
+        Destroy(gameObject, 3);
+    }
     public void SetDamage(int damage)
     {
         this.damage = damage;

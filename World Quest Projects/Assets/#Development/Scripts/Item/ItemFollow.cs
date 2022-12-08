@@ -10,14 +10,12 @@ public class ItemFollow : Item
 
     private bool isDone;
     private GameObject playerObject;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
+        MoveToTargetDrop();
 
+        if (!canClaim) return;
         if (!isDone)
         {
             CheckPlayer();
@@ -26,8 +24,6 @@ public class ItemFollow : Item
         {
             GoToPlayer();
         }
-
-        
     }
     private void CheckPlayer()
     {
@@ -45,7 +41,13 @@ public class ItemFollow : Item
         {
             return;
         }
+
+        Vector2 direction = playerObject.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        
         transform.position = Vector3.MoveTowards(transform.position, playerObject.transform.position, speed*Time.deltaTime);
+        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
 
     private void OnDrawGizmos()
