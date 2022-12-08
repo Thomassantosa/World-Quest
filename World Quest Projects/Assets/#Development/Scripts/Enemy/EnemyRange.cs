@@ -19,6 +19,8 @@ public class EnemyRange : EnemyControl
         UpdateMovement();
         UpdateRotationWeapon();
 
+        UpdateEffectHit();
+
         enemyTower.enabled = targetPlayer != null;
     }
 

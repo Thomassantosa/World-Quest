@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5804319317620668502}
-  - component: {fileID: 5804319317620668503}
   - component: {fileID: 5804319317620668500}
+  - component: {fileID: 5804319317620668503}
   m_Layer: 0
   m_Name: Enemy Tower
   m_TagString: Untagged
@@ -33,6 +33,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5804319317620668500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804319317620668501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915e19a5591878648a8f91813367636a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  healthPoint: 100
+  manaPoint: 100
+  exPoint: 0
+  damage: 10
+  normalSpeed: 0
+  movementSpeed: 0
+  dashSpeed: 0
+  skillSpeed: 0
+  dashTime: 0
+  dashCooldown: 0
+  skillActive: 0
+  skillDamage: 0
+  skillTime: 0
+  skillCooldown: 0
+  attackCooldown: 0
+  isFaceRight: 0
+  isIdle: 0
+  level: 0
+  maxExp: 0
+  incrementExp: 0
+  typeUser: 1
+  objectBullet: {fileID: 6967835257430870295, guid: 43d1db56d40aaa84d8a5966905e1e6fb, type: 3}
+  posShot: {fileID: 5804319317736452685}
+  speedBullet: 5
+  adjustRotation: 90
+  cooldownIdle: 5
+  radiusFindPlayer: 6
+  layerPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  cooldownShooting: 3
+  targetPlayer: {fileID: 0}
 --- !u!212 &5804319317620668503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,37 +129,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5804319317620668500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804319317620668501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915e19a5591878648a8f91813367636a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoint: 100
-  manaPoint: 100
-  damage: 10
-  movementSpeed: 0
-  isFaceRight: 0
-  isIdle: 0
-  cam: {fileID: 0}
-  adjustRotation: 90
-  typeUser: 1
-  objectBullet: {fileID: 6967835257430870295, guid: 43d1db56d40aaa84d8a5966905e1e6fb, type: 3}
-  posShot: {fileID: 5804319317736452685}
-  speedBullet: 5
-  cooldownIdle: 5
-  radiusFindPlayer: 6
-  layerPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  cooldownShooting: 3
-  targetPlayer: {fileID: 0}
 --- !u!1 &5804319317736452682
 GameObject:
   m_ObjectHideFlags: 0

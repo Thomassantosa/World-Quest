@@ -10,11 +10,20 @@ public class EnemyControl : MonoBehaviour
     public EnemyAttack enemyAttack;
     public GameObject enemyAnim;
     public Rigidbody2D rB;
+    public SpriteRenderer sprite;
     [SerializeField] protected TypeAttack typeAttack;
 
     [Header("Item Drop")]
     public Item[] listItem;
     public int maxItemDrop;
+
+    [Header("Main Variable")]
+    public bool isImmune;
+
+    [Header("Effect")]
+    public float durationGetHit;
+    private float _durationGetHit;
+
 
     [Header("Area")]
     public AreaManager areaManager;
@@ -169,6 +178,9 @@ public class EnemyControl : MonoBehaviour
 
     public void GetDamage(int dmg)
     {
+        if (isImmune) return;
+
+        EffectHitActive();
         //Test
         int lastHealth = enemyData.GetHealthPoint() - dmg;
         if (lastHealth > 0)
@@ -209,5 +221,31 @@ public class EnemyControl : MonoBehaviour
                 Quaternion.identity);
 
         }
+    }
+
+    public void UpdateEffectHit()
+    {
+        if (!isImmune) return;
+
+        if(_durationGetHit > 0)
+        {
+            _durationGetHit -= Time.deltaTime;
+        }
+        else
+        {
+            EffectHitEnd();
+        }
+    }
+    //Effect
+    public void EffectHitActive()
+    {
+        _durationGetHit = durationGetHit;
+        sprite.color = new Color(255, 0, 0);
+        isImmune = true;
+    }
+    public void EffectHitEnd()
+    {
+        sprite.color = Color.white;
+        isImmune = false;
     }
 }
