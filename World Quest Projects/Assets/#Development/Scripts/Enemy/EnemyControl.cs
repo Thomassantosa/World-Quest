@@ -44,6 +44,10 @@ public class EnemyControl : MonoBehaviour
     [Header("Movement Target")]
     [SerializeField] protected Transform targetPlayer;
 
+
+    [Header("Effect")]
+    public GameObject effectDie;
+    public GameObject spriteDie;
     public void Init()
     {
         moveSpeed = enemyData.GetMovementSpeed();
@@ -180,6 +184,7 @@ public class EnemyControl : MonoBehaviour
     {
         if (isImmune) return;
 
+        SoundManager.instance.PlaySFX(SoundSFX.SFX_ENEMY_GET_HIT);
         EffectHitActive();
         //Test
         int lastHealth = enemyData.GetHealthPoint() - dmg;
@@ -189,10 +194,14 @@ public class EnemyControl : MonoBehaviour
         }
         else
         {
+            Instantiate(effectDie, transform.position, Quaternion.identity);
+            Instantiate(spriteDie, transform.position, Quaternion.identity);
+            
             DropItem();
 
             PlayerControl.Instance.GetExp(5);
-            areaManager.EnemyDie();
+
+            if(areaManager != null) areaManager.EnemyDie();
             enemyData.SetHealthPoint(0);
             Destroy(gameObject);
         }

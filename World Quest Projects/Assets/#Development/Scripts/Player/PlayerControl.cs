@@ -33,6 +33,10 @@ public class PlayerControl : MonoBehaviour
 
     public NPCControl npcActive;
 
+    [Header("Effect")]
+    public GameObject effectSkill;
+    public GameObject effectSkillActive;
+    public GameObject effectHeal;
     private void Awake()
     {
         Instance = this;
@@ -140,6 +144,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (isImmune) return;
 
+        playerData.SFXGetHit();
         EffectHitActive();
         int lastHealth = playerData.GetHealthPoint() - dmg;
         if (lastHealth > 0)
@@ -182,5 +187,22 @@ public class PlayerControl : MonoBehaviour
     {
         playerSprite.color = Color.white;
         isImmune = false;
+    }
+    public void EffectUseSkill()
+    {
+        effectSkill.SetActive(true);
+    }
+    public void EffectSkillActive()
+    {
+        effectSkillActive.SetActive(true);
+    }
+    
+    public void EffectSkillEnd()
+    {
+        effectSkillActive.SetActive(false);
+    }
+    public void EffectHealing()
+    {
+        effectHeal.SetActive(true);
     }
 }

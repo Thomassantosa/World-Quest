@@ -40,6 +40,30 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int maxExp;
     [SerializeField] private int incrementExp;
 
+
+    [Header("SFX")]
+    public AudioSource audioSource;
+    public AudioClip sfxDash;
+    public AudioClip sfxGetHit;
+    public AudioClip sfxSkill;
+    public AudioClip sfxChange;
+
+    public void SFXDash()
+    {
+        audioSource.PlayOneShot(sfxDash);
+    }
+    public void SFXGetHit()
+    {
+        audioSource.PlayOneShot(sfxGetHit);
+    }
+    public void SFXSkill()
+    {
+        audioSource.PlayOneShot(sfxSkill);
+    }
+    public void SFXChange()
+    {
+        audioSource.PlayOneShot(sfxChange);
+    }
     public void SetHealthPoint(int healthPoint)
     {
         if (healthPoint >= 100) healthPoint = 100;
@@ -127,7 +151,7 @@ public class PlayerData : MonoBehaviour
             if (_skillTime > 0)
             {
                 _skillTime -= Time.deltaTime;
-
+                PlayerControl.Instance.EffectSkillActive();
                 if (_skillTime <= 0)
                 {
                     PlayerSkillFalse();
@@ -139,6 +163,7 @@ public class PlayerData : MonoBehaviour
    
     public void PlayerDashTrue()
     {
+        SFXDash();
         _dashTime = dashTime;
         movementSpeed = dashSpeed;
         isDash = true;
@@ -152,6 +177,8 @@ public class PlayerData : MonoBehaviour
 
     public void PlayerSkillTrue()
     {
+        PlayerControl.Instance.EffectUseSkill();
+        SFXSkill();
         _skillTime = skillTime;
         skillActive = true;
         isSkill = true;
@@ -161,6 +188,7 @@ public class PlayerData : MonoBehaviour
     }
     public void PlayerSkillFalse()
     {
+        PlayerControl.Instance.EffectSkillEnd();
         _skillTime = 0;
         skillActive = false;
         isSkill = false;

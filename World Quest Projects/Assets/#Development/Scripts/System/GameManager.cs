@@ -51,10 +51,6 @@ public class GameManager : MonoBehaviour
             SpawnBoss();
         }
     }
-    public void GameFinish()
-    {
-        FinishQuest();
-    }
 
     public void SpawnBoss()
     {

@@ -50,23 +50,26 @@ public enum SoundSFX
     SFX_PANEL_FAILED,
     SFX_BOSS_SOUND,
     SFX_OPEN_DOOR,
+
+    SFX_ENEMY_GET_HIT
 }
 /*
  Sound effect
 - Click OK
 - Click Cancel
 - Click Opening
-- Pop-up
-- Success panel
-- Failed panel
-- Boss sound
+- Pop-up x
+- Success panel x
+- Failed panel x
+- Boss sound x
 - Door open
+- Enemy Get Hit x
 
 Sound on object
-- Weapon sound (staff, sword, bow, spear) 
-- Get hit
-- Dash
-- Skill sound
+- Weapon sound (staff x, sword, bow, spear x) 
+- Get hit x
+- Dash x
+- Skill sound x
 - Change weapon
  */
 

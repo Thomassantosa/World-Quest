@@ -69,6 +69,11 @@ MonoBehaviour:
   level: 0
   maxExp: 0
   incrementExp: 0
+  audioSource: {fileID: 0}
+  sfxDash: {fileID: 0}
+  sfxGetHit: {fileID: 0}
+  sfxSkill: {fileID: 0}
+  sfxChange: {fileID: 0}
   typeUser: 1
   objectBullet: {fileID: 6967835257430870295, guid: 43d1db56d40aaa84d8a5966905e1e6fb, type: 3}
   posShot: {fileID: 3576080064868830396}
@@ -77,6 +82,8 @@ MonoBehaviour:
   isImmune: 0
   sprite: {fileID: 0}
   durationGetHit: 0
+  effectDie: {fileID: 0}
+  spriteDie: {fileID: 0}
   cooldownIdle: 5
   radiusFindPlayer: 3
   layerPlayer:
@@ -145,6 +152,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   colliderWeapon: {fileID: 3209718158480781093}
   isActive: 1
+  audioSource: {fileID: 0}
+  sfxAttack: {fileID: 0}
   typeRange: 0
   posShot: {fileID: 3576080064868830396}
   bullet: {fileID: 6967835257430870295, guid: 43d1db56d40aaa84d8a5966905e1e6fb, type: 3}
@@ -334,6 +343,8 @@ MonoBehaviour:
   counterTimeIdle: 0
   numberPath: 1
   targetPlayer: {fileID: 0}
+  effectDie: {fileID: 167524, guid: de85f8f81ea29ea479250adb36debd92, type: 3}
+  spriteDie: {fileID: 7751254764320041250, guid: a1bc229cfbf47454f8aa82df8e11e07b, type: 3}
   enemyTower: {fileID: 557456964835612161}
 --- !u!114 &3993311561240144921
 MonoBehaviour:
@@ -368,6 +379,11 @@ MonoBehaviour:
   level: 0
   maxExp: 0
   incrementExp: 0
+  audioSource: {fileID: 0}
+  sfxDash: {fileID: 0}
+  sfxGetHit: {fileID: 0}
+  sfxSkill: {fileID: 0}
+  sfxChange: {fileID: 0}
   timeIdle: 3
 --- !u!114 &3993311561240144922
 MonoBehaviour:

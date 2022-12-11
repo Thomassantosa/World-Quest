@@ -187,6 +187,8 @@ MonoBehaviour:
   counterTimeIdle: 0
   numberPath: 1
   targetPlayer: {fileID: 0}
+  effectDie: {fileID: 167524, guid: de85f8f81ea29ea479250adb36debd92, type: 3}
+  spriteDie: {fileID: 7751254764320041250, guid: a1bc229cfbf47454f8aa82df8e11e07b, type: 3}
   cooldownAttack: 2
 --- !u!114 &4210127844897402441
 MonoBehaviour:
@@ -221,6 +223,11 @@ MonoBehaviour:
   level: 0
   maxExp: 0
   incrementExp: 0
+  audioSource: {fileID: 0}
+  sfxDash: {fileID: 0}
+  sfxGetHit: {fileID: 0}
+  sfxSkill: {fileID: 0}
+  sfxChange: {fileID: 0}
   timeIdle: 3
 --- !u!114 &4210127844897402442
 MonoBehaviour:

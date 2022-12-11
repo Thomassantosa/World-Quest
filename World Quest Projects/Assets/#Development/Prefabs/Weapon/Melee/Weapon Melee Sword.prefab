@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: damage
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 5575785381685733905, guid: cafe6aaa85561b24686bf02f13bd8b92, type: 3}
+      propertyPath: sfxAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 15e33ac243eade74db7e62f56601a1f1, type: 3}
     - target: {fileID: 5575785381685733906, guid: cafe6aaa85561b24686bf02f13bd8b92, type: 3}
       propertyPath: m_Name
       value: Weapon Melee Sword

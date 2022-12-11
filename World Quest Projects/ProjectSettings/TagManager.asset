@@ -61,14 +61,14 @@ TagManager:
   - name: Layer 1b
     uniqueID: 3924661673
     locked: 0
-  - name: Item
-    uniqueID: 2239859177
-    locked: 0
   - name: Layer 2
     uniqueID: 1959779483
     locked: 0
   - name: Layer 2b
     uniqueID: 3980122535
+    locked: 0
+  - name: Item
+    uniqueID: 2239859177
     locked: 0
   - name: Player
     uniqueID: 2231465207
