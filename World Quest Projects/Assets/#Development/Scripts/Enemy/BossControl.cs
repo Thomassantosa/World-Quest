@@ -6,6 +6,7 @@ using TMPro;
 
 public class BossControl : MonoBehaviour
 {
+    public Transform posOriginBoss;
     public Transform objectPlayer;
     public LayerMask layerPlayer;
 
@@ -37,11 +38,21 @@ public class BossControl : MonoBehaviour
 
     [Header("Main Variable")]
     public bool isImmune;
+    public Transform startPos;
 
     [Header("Effect")]
     public SpriteRenderer sprite;
     public float durationGetHit;
     private float _durationGetHit;
+
+    public GameObject effectRespawn;
+    public GameObject effectPosTarget;
+    public GameObject effectAttack1;
+    public GameObject effectAttack1b;
+
+
+    public GameObject effectDie;
+    public GameObject spriteDie;
     void Start()
     {
         pathAttack = 0;
@@ -55,20 +66,20 @@ public class BossControl : MonoBehaviour
         UpdateEffectHit();
 
 
-        if (isAttacking)
+/*        if (isAttacking)
         {
             if (_timeAttack1 > 0)
             {
                 _timeAttack1 -= Time.deltaTime;
-                Attack1B();
+                //Attack1B();
             }
             else
             {
                 isAttacking = false;
-                Invoke(nameof(IdleAttack), 5);
+                ResetPosition();
             }
             return;
-        }
+        }*/
 
         if (isIdle)
         {
@@ -97,6 +108,10 @@ public class BossControl : MonoBehaviour
         if (health < 0)
         {
             health = 0;
+            Instantiate(effectDie, posOriginBoss.position, Quaternion.identity);
+            Instantiate(spriteDie, posOriginBoss.position, Quaternion.identity);
+            GameManager.instance.canvas.PanelWin(true);
+            Destroy(gameObject);
         }
 
         sliderHealth.value = health;
@@ -114,7 +129,7 @@ public class BossControl : MonoBehaviour
         isAttacking = true;
 
         pathAttack++;
-        if (pathAttack >= 4)
+        if (pathAttack >= 5)
         {
             IdleAttack();
             pathAttack = 0;
@@ -125,26 +140,41 @@ public class BossControl : MonoBehaviour
         }
         else
         {
-            Attack1();
+            Attack1Init();
         }
 
+    }
+    Vector3 posTarget;
+
+    public void Attack1Init()
+    {
+        Debug.Log("Attacl Init");
+        Vector3 offset = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+        posTarget = objectPlayer.position + offset;
+        effectPosTarget.SetActive(true);
+        effectPosTarget.transform.position = posTarget;
+
+        Invoke(nameof(Attack1), 2);
     }
 
     public void Attack1()
     {
-        Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        transform.position = objectPlayer.position + offset;
-        Invoke(nameof(Attack1A), 2);
+        effectPosTarget.SetActive(false);
+        transform.position = posTarget;
+        effectAttack1.SetActive(true);
+        Invoke(nameof(Attack1A),.5f);
 
     }
     public void Attack1A()
     {
-        _timeAttack1 = 0.5f;
+        effectAttack1b.SetActive(true);
+        _timeAttack1 = 1f;
+        Attack1B();
     }
     protected void Attack1B()
     {
 
-        Collider2D isFoundPlayer = Physics2D.OverlapCircle(transform.position, 3, layerPlayer);
+        Collider2D isFoundPlayer = Physics2D.OverlapCircle(transform.position, 1.5f, layerPlayer);
 
         if (isFoundPlayer != null)
         {
@@ -152,6 +182,14 @@ public class BossControl : MonoBehaviour
             _timeAttack1 = 0;
         }
 
+        Invoke(nameof(ResetPosition), 1f);
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = startPos.position;
+        effectRespawn.SetActive(true);
+        Invoke(nameof(IdleAttack), 3);
     }
 
     public void Attack2()
@@ -169,7 +207,6 @@ public class BossControl : MonoBehaviour
             {
                 GameObject tower = Instantiate(objectTower, spawnPosOrigin.position + offset, Quaternion.identity);
                 EnemyTower scriptTower = tower.GetComponent<EnemyTower>();
-                scriptTower.isRotated = false;
                 scriptTower.targetPlayer = objectPlayer;
             }
             else

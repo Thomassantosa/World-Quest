@@ -6,9 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public TypeUser typeUser;
     public int damage;
+
+    public GameObject effectDestroy;
     private void Start()
     {
-        Destroy(gameObject, 3);
+        Invoke(nameof(DestroyBullet), 3);
     }
     public void SetDamage(int damage)
     {
@@ -23,7 +25,7 @@ public class Bullet : MonoBehaviour
             if (typeUser == TypeUser.PLAYER) return;
             PlayerControl player = collision.gameObject.GetComponent<PlayerControl>();
             player.GetDamage(damage);
-            Destroy(gameObject);
+            DestroyBullet();
         }
         else if (collision.gameObject.tag.Equals("Enemy"))
         {
@@ -38,7 +40,7 @@ public class Bullet : MonoBehaviour
                 {
                     Debug.Log("Dmg Tower");
                     enemyTower.GetDamage(damage);
-                    Destroy(gameObject);
+                    DestroyBullet();
                 }
                 else
                 {
@@ -47,18 +49,24 @@ public class Bullet : MonoBehaviour
                     {
                         Debug.Log("Dmg Bos");
                         bossControl.GetDamage(damage);
-                        Destroy(gameObject);
+                        DestroyBullet();
                     }
                 }
                 return;
             }
             Debug.Log("Dmg Enemy");
             enemy.GetDamage(damage);
-            Destroy(gameObject);
+            DestroyBullet();
             return;
         }
         
         if(!collision.gameObject.tag.Equals("Weapon"))
-            Destroy(gameObject);
+            DestroyBullet();
     }
+
+    public void DestroyBullet()
+    {
+        Instantiate(effectDestroy, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }    
 }

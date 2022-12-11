@@ -312,22 +312,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5631047737469847452}
     m_Modifications:
-    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
-      propertyPath: skillTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
-      propertyPath: normalSpeed
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
-      propertyPath: skillDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3696465289501447530, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
-      propertyPath: skillCooldown
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 6102385415640639331, guid: a30bd205573c01841a4076dbbbaa3c79, type: 3}
       propertyPath: m_RootOrder
       value: 1

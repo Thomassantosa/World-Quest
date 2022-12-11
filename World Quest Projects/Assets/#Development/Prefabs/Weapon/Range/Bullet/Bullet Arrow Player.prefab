@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeUser: 0
   damage: 20
+  effectDestroy: {fileID: 193104, guid: c2f28a236b0696a4f90a994422019577, type: 3}
 --- !u!58 &6967835257430870293
 CircleCollider2D:
   m_ObjectHideFlags: 0

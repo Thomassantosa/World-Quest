@@ -83,6 +83,8 @@ public class PlayerAttack : MonoBehaviour
 
     public void ChangeWeapon()
     {
+
+        PlayerControl.Instance.playerData.SFXChange();
         if (weaponCount >= 2)
         {
             if (listWeapon[0] == weaponActive)

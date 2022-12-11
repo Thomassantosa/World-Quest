@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 6967835257430870295, guid: 5a87f24044c41f64eba76a8e363222b1, type: 3}
+    - target: {fileID: 3899191458280902035, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
+      propertyPath: sfxAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 45e4857fceda3e74ab94f02fec07ea7c, type: 3}
     - target: {fileID: 4457925636238937237, guid: 3cf249c38a72f4149be496aab197daec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.002

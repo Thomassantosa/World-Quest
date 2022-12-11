@@ -16,6 +16,9 @@ abstract public class Weapon : MonoBehaviour
 
     public bool isActive;
 
+    public AudioSource audioSource;
+    public AudioClip sfxAttack;
+
     public int GetDamage()
     {
         return damage;

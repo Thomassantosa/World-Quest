@@ -12,9 +12,9 @@ public class WeaponRange : Weapon
 
     public override void Attack(int dmgPlayer)
     {
+        audioSource.PlayOneShot(sfxAttack);
         damagePlayer = dmgPlayer;
 
-        Debug.Log("Attack Range");
         switch (typeRange)
         {
             case TypeRange.BOW:

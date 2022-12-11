@@ -5264,6 +5264,7 @@ MonoBehaviour:
   panelMassage: {fileID: 5950157691551064813}
   panelLose: {fileID: 7697073243594396686}
   panelWin: {fileID: 1514629066328831813}
+  panelQuit: {fileID: 0}
   buttonDialog: {fileID: 229781869957913544}
   buttonAttack: {fileID: 4416586087234344021}
   buttonChange: {fileID: 3477107715078676825}
@@ -7979,14 +7980,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 725ad7702741a1d449f8fac5db3690e4, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6809313823554892737

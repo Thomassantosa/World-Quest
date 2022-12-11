@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     public PanelMassage panelMassage;
     public GameObject panelLose;
     public GameObject panelWin;
+    public GameObject panelQuit;
 
     public Button buttonDialog;
     public ButtonCooldown buttonAttack;
@@ -79,6 +80,12 @@ public class CanvasManager : MonoBehaviour
         panelMassage.gameObject.SetActive(con);
         if(con) panelMassage.SetText(stringMassage);
     }
+    public void ShowPanelQuit()
+    {
+        SoundManager.instance.PlaySFX(SoundSFX.SFX_CLICK_OK);
+        panelQuit.SetActive(true);
+    }
+
     public void SetDPad(float valX, float valY)
     {
         if ((valX > -0.1f && valX < 0.1f) && (valY > -0.1f && valY < 0.1f))
@@ -155,4 +162,5 @@ public class CanvasManager : MonoBehaviour
             _dashCooldown -= Time.deltaTime;
         }*/
     }
+
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyTower : PlayerData
 {
     [Header("Tower")]
-    public bool isRotated;
     public TypeUser typeUser;
     public Bullet objectBullet;
     public Transform posShot;
@@ -18,7 +17,9 @@ public class EnemyTower : PlayerData
     [Header("Effect")]
     public SpriteRenderer sprite;
     public float durationGetHit;
-    private float _durationGetHit;
+    private float _durationGetHit; 
+    public GameObject effectDie;
+    public GameObject spriteDie;
 
     [Header("Idle")]
     [SerializeField] private float cooldownIdle;
@@ -30,6 +31,7 @@ public class EnemyTower : PlayerData
     [SerializeField] private float cooldownShooting;
     private float _cooldownShooting;
     public Transform targetPlayer;
+
     void Start()
     {
         _cooldownShooting = Random.Range(cooldownShooting, cooldownShooting * 2);
@@ -50,7 +52,7 @@ public class EnemyTower : PlayerData
         }
         else
         {
-            SetTargetRandom();
+            //SetTargetRandom();
             targetPlayer = null;
         }
 
@@ -85,19 +87,15 @@ public class EnemyTower : PlayerData
     private float rotZ;
     private void SetToTarget()
     {
-        if (!isRotated) return;
-
         Vector3 rotation = targetPlayer.position - transform.position;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotZ - adjustRotation);
+        posShot.transform.rotation = Quaternion.Euler(0, 0, rotZ - adjustRotation);
 
     }
 
     private void SetTargetRandom()
     {
-        if (!isRotated) return;
-
         if (_cooldownIdle > 0)
         {
             _cooldownIdle -= Time.deltaTime;
@@ -115,6 +113,8 @@ public class EnemyTower : PlayerData
         if (isImmune) return;
         EffectHitActive();
 
+        SoundManager.instance.PlaySFX(SoundSFX.SFX_ENEMY_GET_HIT);
+
         int lastHealth = GetHealthPoint() - dmg;
         if (lastHealth > 0)
         {
@@ -122,6 +122,8 @@ public class EnemyTower : PlayerData
         }
         else
         {
+            Instantiate(effectDie, transform.position, Quaternion.identity);
+            Instantiate(spriteDie, transform.position, Quaternion.identity);
             PlayerControl.Instance.GetExp(5);
             SetHealthPoint(0);
             Destroy(gameObject);

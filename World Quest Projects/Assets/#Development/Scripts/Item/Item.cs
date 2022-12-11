@@ -42,6 +42,7 @@ public class Item : MonoBehaviour
         switch (type)
         {
             case TypeItem.HEALTH:
+                PlayerControl.Instance.EffectHealing();
                 dataPlayer.SetHealthPoint(dataPlayer.GetHealthPoint() + amount);
                 break;
             case TypeItem.MANA:

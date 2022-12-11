@@ -18,6 +18,8 @@ public class WeaponMelee : Weapon
     }
     public override void Attack(int dmgPlayer)
     {
+        audioSource.PlayOneShot(sfxAttack);
+
         damagePlayer = dmgPlayer;
 
         colliderWeapon.enabled = true;
