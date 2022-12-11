@@ -61,6 +61,8 @@ public class PlayerData : MonoBehaviour
             exPoint = 0;
             maxExp += incrementExp;
             level++;
+            //Tambah Level Up
+            Debug.LogWarning("Tambah Level Up");
         }
         this.exPoint = exPoint;
         if (isPlayer) GameManager.instance.canvas.canvasPlayer.SetEXP(level,exPoint, maxExp);

@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/#Development/Scenes/Guild.unity
     guid: 5befd38fd81f4ca4c98641aab4acbd49
   - enabled: 1
-    path: Assets/#Development/Scenes/Forest.unity
-    guid: 31c524b0c0d7c134c8ead4124645a9a7
-  - enabled: 0
-    path: Assets/#Development/Scenes/TestNPC.unity
-    guid: 045bc8c7f4c1eb4409fb2cbe496ac44d
+    path: Assets/#Development/Scenes/Ruins.unity
+    guid: b510d67f6e80d2149a89dae3c6c4d9aa
   m_configObjects: {}

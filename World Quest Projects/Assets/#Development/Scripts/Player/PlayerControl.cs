@@ -49,7 +49,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
 
-#if UNITY_EDITOR
+#if !UNITY_EDITOR || UNITY_EDITOR
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
@@ -69,7 +69,7 @@ public class PlayerControl : MonoBehaviour
         {
             playerAttack.Attack();
         }
-#elif UNITY_ANDORID
+#elif UNITY_ANDORID 
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
 #endif

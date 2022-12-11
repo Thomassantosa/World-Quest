@@ -79,5 +79,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  extraRangeX: 1
-  extraRangeY: 1
+  extraRangeX: 0.5
+  extraRangeY: 0.5

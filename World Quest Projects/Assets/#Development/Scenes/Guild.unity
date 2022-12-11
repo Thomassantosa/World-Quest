@@ -473,8 +473,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -314844761
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -727,7 +727,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 4.807328}
+  m_Offset: {x: 0, y: 5.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -738,7 +738,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 2.385343}
+  m_Size: {x: 6, y: 3.75}
   m_EdgeRadius: 0
 --- !u!1 &164413738
 GameObject:
@@ -1333,13 +1333,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 89805387009952899, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 385033770764729035, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431138992817623742, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785450310992769562, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1417,11 +1421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6018261590361405687, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6229759367784833573, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6763515581991279507, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1437,7 +1441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8570819256910640076, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8787367118973902727, guid: ad56a55724937774e9aa7501fbaa0b16, type: 3}
       propertyPath: m_RootOrder
@@ -6069,6 +6073,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Quest
       objectReference: {fileID: 0}
+    - target: {fileID: 6661739961449383131, guid: f52f2e7394bea3145bc4c0b41791738b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661739961449383131, guid: f52f2e7394bea3145bc4c0b41791738b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1959779483
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52f2e7394bea3145bc4c0b41791738b, type: 3}
 --- !u!4 &987290840 stripped
@@ -6616,7 +6628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661739961449383129, guid: f52f2e7394bea3145bc4c0b41791738b, type: 3}
       propertyPath: nameScene
-      value: Forest
+      value: Ruins
       objectReference: {fileID: 0}
     - target: {fileID: 6661739961449383129, guid: f52f2e7394bea3145bc4c0b41791738b, type: 3}
       propertyPath: canvasPanel
@@ -7463,7 +7475,7 @@ SortingGroup:
   m_GameObject: {fileID: 1628855355}
   m_Enabled: 1
   m_SortingLayerID: -2063502089
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 8
 --- !u!1 &1651787013
 GameObject:
@@ -25458,7 +25470,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -737363261
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: a188c6b5851a87f4baa82385d3bf66e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -25646,7 +25658,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -737363261
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: d93a7c2eee73aa84f843b8aaec753fdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

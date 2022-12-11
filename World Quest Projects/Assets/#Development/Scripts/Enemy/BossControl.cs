@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class BossControl : MonoBehaviour
 {
@@ -11,12 +11,18 @@ public class BossControl : MonoBehaviour
 
     public int health;
     public Slider sliderHealth;
+    public TextMeshProUGUI textHealth;
 
+    [Header("Spawn Melee")]
+    public GameObject objectGoblin;
+    public int numberPath;
+
+    [Header("Spawn Range")]
     public GameObject objectTower;
     public Transform spawnPosOrigin;
     public float spawnRangeX;
     public float spawnRangeY;
-    public int numOfTower;
+    public int numOfSpawn;
 
     public bool isIdle;
     public float timeIdle;
@@ -39,6 +45,7 @@ public class BossControl : MonoBehaviour
     void Start()
     {
         pathAttack = 0;
+        textHealth.text = $"{health}/500";
         sliderHealth.maxValue = health;
         IdleAttack();
     }
@@ -63,9 +70,9 @@ public class BossControl : MonoBehaviour
             return;
         }
 
-        if(isIdle)
+        if (isIdle)
         {
-            if(_timeIdle > 0)
+            if (_timeIdle > 0)
             {
                 _timeIdle -= Time.deltaTime;
             }
@@ -93,6 +100,7 @@ public class BossControl : MonoBehaviour
         }
 
         sliderHealth.value = health;
+        textHealth.text = $"{health}/500";
     }
 
     public void IdleAttack()
@@ -106,12 +114,12 @@ public class BossControl : MonoBehaviour
         isAttacking = true;
 
         pathAttack++;
-        if(pathAttack >= 4)
+        if (pathAttack >= 4)
         {
             IdleAttack();
             pathAttack = 0;
         }
-        else if(pathAttack >= 3)
+        else if (pathAttack >= 3)
         {
             Attack2();
         }
@@ -124,8 +132,9 @@ public class BossControl : MonoBehaviour
 
     public void Attack1()
     {
-        transform.position = objectPlayer.position;
-        Invoke(nameof(Attack1A), 1);
+        Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        transform.position = objectPlayer.position + offset;
+        Invoke(nameof(Attack1A), 2);
 
     }
     public void Attack1A()
@@ -151,9 +160,25 @@ public class BossControl : MonoBehaviour
     }
     public void Attack2A()
     {
-        for (int i = 0; i < numOfTower; i++)
+        int nums = Random.Range(1, numOfSpawn + 1);
+
+        for (int i = 0; i < nums; i++)
         {
-            GameObject tower = Instantiate(objectTower, spawnPosOrigin.position + new Vector3(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY), 0), Quaternion.identity);
+            Vector3 offset = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY), 0);
+            if (Random.Range(0, 100) < 50)
+            {
+                GameObject tower = Instantiate(objectTower, spawnPosOrigin.position + offset, Quaternion.identity);
+                EnemyTower scriptTower = tower.GetComponent<EnemyTower>();
+                scriptTower.isRotated = false;
+                scriptTower.targetPlayer = objectPlayer;
+            }
+            else
+            {
+                GameObject goblin = Instantiate(objectGoblin, spawnPosOrigin.position + offset, Quaternion.identity);
+
+                EnemyMelee scriptGoblin = goblin.GetComponent<EnemyMelee>();
+                scriptGoblin.numberPath = numberPath;
+            }
         }
 
         Invoke(nameof(IdleAttack), 5);

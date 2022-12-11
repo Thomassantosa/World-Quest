@@ -38,7 +38,7 @@ public class EnemyControl : MonoBehaviour
     public float counterTimeIdle;
 
     [Header("Movement Random")]
-    [SerializeField] protected int numberPath;
+    public int numberPath;
     protected Vector3 targetRandom;
 
     [Header("Movement Target")]

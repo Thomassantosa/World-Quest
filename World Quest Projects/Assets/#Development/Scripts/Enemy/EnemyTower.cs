@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyTower : PlayerData
 {
     [Header("Tower")]
+    public bool isRotated;
     public TypeUser typeUser;
     public Bullet objectBullet;
     public Transform posShot;
@@ -84,6 +85,8 @@ public class EnemyTower : PlayerData
     private float rotZ;
     private void SetToTarget()
     {
+        if (!isRotated) return;
+
         Vector3 rotation = targetPlayer.position - transform.position;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
@@ -93,6 +96,8 @@ public class EnemyTower : PlayerData
 
     private void SetTargetRandom()
     {
+        if (!isRotated) return;
+
         if (_cooldownIdle > 0)
         {
             _cooldownIdle -= Time.deltaTime;
