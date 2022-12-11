@@ -55,12 +55,33 @@ TagManager:
   - name: Floor
     uniqueID: 3090174699
     locked: 0
+  - name: Layer 1
+    uniqueID: 333315189
+    locked: 0
+  - name: Layer 1b
+    uniqueID: 3924661673
+    locked: 0
   - name: Item
     uniqueID: 2239859177
+    locked: 0
+  - name: Layer 2
+    uniqueID: 1959779483
+    locked: 0
+  - name: Layer 2b
+    uniqueID: 3980122535
     locked: 0
   - name: Player
     uniqueID: 2231465207
     locked: 0
   - name: Weapon
     uniqueID: 2899517811
+    locked: 0
+  - name: Layer 3
+    uniqueID: 3557604035
+    locked: 0
+  - name: Layer 3b
+    uniqueID: 1919854747
+    locked: 0
+  - name: Layer 4
+    uniqueID: 579185591
     locked: 0
