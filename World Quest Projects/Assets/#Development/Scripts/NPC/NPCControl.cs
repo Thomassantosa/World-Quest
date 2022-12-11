@@ -40,11 +40,13 @@ public class NPCControl : MonoBehaviour
         switch (type)
         {
             case TypeNPC.DIALOG:
+                SoundManager.instance.PlaySFX(SoundSFX.SFX_CLICK_OK);
                 textDialog.text = dialogNPC;
                 timeCounter = timeDisplay;
                 isDialogNPC = true;
                 break;
             case TypeNPC.PANEL:
+                SoundManager.instance.PlaySFX(SoundSFX.SFX_POP_UP);
                 canvasPanel.SetActive(true);
                 break;
             case TypeNPC.DOOR:
@@ -54,6 +56,7 @@ public class NPCControl : MonoBehaviour
                 }
                 else
                 {
+                    SoundManager.instance.PlaySFX(SoundSFX.SFX_OPEN_DOOR);
                     ManagerScene.instance.ChangeSceneDelay(nameScene);
                 }
                 break;
