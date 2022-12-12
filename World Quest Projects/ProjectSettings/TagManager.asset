@@ -67,6 +67,15 @@ TagManager:
   - name: Layer 2b
     uniqueID: 3980122535
     locked: 0
+  - name: Layer 2c
+    uniqueID: 6659883
+    locked: 0
+  - name: Layer 2d
+    uniqueID: 1320196557
+    locked: 0
+  - name: Layer 2e
+    uniqueID: 1257621017
+    locked: 0
   - name: Item
     uniqueID: 2239859177
     locked: 0
