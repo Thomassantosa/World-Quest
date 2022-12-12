@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject panelLose;
     public GameObject panelWin;
     public GameObject panelQuit;
+    public TextMeshProUGUI textCoin;
 
     public Button buttonDialog;
     public ButtonCooldown buttonAttack;
@@ -85,7 +86,10 @@ public class CanvasManager : MonoBehaviour
         SoundManager.instance.PlaySFX(SoundSFX.SFX_CLICK_OK);
         panelQuit.SetActive(true);
     }
-
+    public void SetTextCoin(int val)
+    {
+        textCoin.text = val.ToString();
+    }
     public void SetDPad(float valX, float valY)
     {
         if ((valX > -0.1f && valX < 0.1f) && (valY > -0.1f && valY < 0.1f))

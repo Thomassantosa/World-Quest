@@ -9,6 +9,7 @@ public class NPCControl : MonoBehaviour
     public GameObject canvasPanel;
     [Header("Change Scene")]
     public string nameScene;
+    public bool masukGuild;
     [Header("NPC Dialog")]
     public TMP_Text textDialog;
     public string dialogNPC;
@@ -50,14 +51,26 @@ public class NPCControl : MonoBehaviour
                 canvasPanel.SetActive(true);
                 break;
             case TypeNPC.DOOR:
-                if (GameManager.instance.haveQuest == 0)
+                if (masukGuild)
                 {
-                    GameManager.instance.canvas.PanelMassage(true, "you don't have a quest");
+                    if (GameManager.instance.gameFinish)
+                    {
+                        SoundManager.instance.PlaySFX(SoundSFX.SFX_OPEN_DOOR);
+                        ManagerScene.instance.ChangeSceneDelay(nameScene);
+                    }else
+                        GameManager.instance.canvas.PanelMassage(true, "defeat the goblin boss first");
                 }
                 else
                 {
-                    SoundManager.instance.PlaySFX(SoundSFX.SFX_OPEN_DOOR);
-                    ManagerScene.instance.ChangeSceneDelay(nameScene);
+                    if (GameManager.instance.haveQuest == 0)
+                    {
+                        GameManager.instance.canvas.PanelMassage(true, "you don't have a quest");
+                    }
+                    else
+                    {
+                        SoundManager.instance.PlaySFX(SoundSFX.SFX_OPEN_DOOR);
+                        ManagerScene.instance.ChangeSceneDelay(nameScene);
+                    }
                 }
                 break;
             default:

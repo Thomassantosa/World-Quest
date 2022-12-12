@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
         set
         {
             coin = value;
+            RefreshCoin();
         }
     }
 
 
     [Header("Quest")]
     public int haveQuest;
+    public bool gameFinish;
 
     [Header("Main")]
     public CanvasManager canvas;
@@ -46,14 +48,14 @@ public class GameManager : MonoBehaviour
         numOfEnemy--;
         if(numOfEnemy <= 0)
         {
-            Debug.Log("Game Selesai");//Spawn Boss
-            canvas.PanelMassage(true, "Wow!! Good Job, You killing all goblin.");
+            canvas.PanelMassage(true, "goblin boss is coming, hurry back to the guild!");
             SpawnBoss();
         }
     }
 
     public void SpawnBoss()
     {
+        SoundManager.instance.PlayMusic(SoundMusic.MUSIC_BOSS);
         areaBoss.SetActive(true);
     }
 
@@ -66,5 +68,15 @@ public class GameManager : MonoBehaviour
     {
         haveQuest = 2;
         PlayerPrefs.SetInt("QUEST", haveQuest);
+    }
+    public void ResetQuest()
+    {
+        haveQuest = 0;
+        PlayerPrefs.SetInt("QUEST", 0);
+    }
+
+    public void RefreshCoin()
+    {
+        canvas.SetTextCoin(Coin);
     }
 }

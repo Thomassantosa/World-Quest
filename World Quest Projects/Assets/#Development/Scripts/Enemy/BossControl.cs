@@ -111,6 +111,8 @@ public class BossControl : MonoBehaviour
             Instantiate(effectDie, posOriginBoss.position, Quaternion.identity);
             Instantiate(spriteDie, posOriginBoss.position, Quaternion.identity);
             GameManager.instance.canvas.PanelWin(true);
+            GameManager.instance.gameFinish = true;
+            SoundManager.instance.PlayMusic(SoundMusic.MUSIC_RUINS);
             Destroy(gameObject);
         }
 
@@ -134,7 +136,7 @@ public class BossControl : MonoBehaviour
             IdleAttack();
             pathAttack = 0;
         }
-        else if (pathAttack >= 3)
+        else if (pathAttack >= 4)
         {
             Attack2();
         }

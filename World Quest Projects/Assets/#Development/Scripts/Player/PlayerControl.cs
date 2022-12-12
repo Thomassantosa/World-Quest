@@ -7,7 +7,12 @@ public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl Instance;
 
+
+
     public TypeUser type;
+    [Header("Die")]
+    public bool isDie;
+    public GameObject objectSprite;
     [Header("Data")]
     public PlayerData playerData;
     public PlayerAttack playerAttack;
@@ -37,6 +42,11 @@ public class PlayerControl : MonoBehaviour
     public GameObject effectSkill;
     public GameObject effectSkillActive;
     public GameObject effectHeal;
+
+
+    [Header("Effect Die")]
+    public GameObject effectDie;
+    public GameObject spriteDie;
     private void Awake()
     {
         Instance = this;
@@ -52,8 +62,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-#if !UNITY_EDITOR || UNITY_EDITOR
+        if (isDie) return;
+/*#if !UNITY_EDITOR || UNITY_EDITOR
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
@@ -72,11 +82,11 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAttack.Attack();
-        }
-#elif UNITY_ANDORID 
+        }*/
+//#elif UNITY_ANDORID 
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
-#endif
+//#endif
 
         moveDirect = new Vector2(moveX, moveY);
         GameManager.instance.canvas.SetDPad(moveX, moveY);
@@ -154,8 +164,18 @@ public class PlayerControl : MonoBehaviour
         else
         {
             playerData.SetHealthPoint(0);
+            Instantiate(effectDie, transform.position, Quaternion.identity);
+            Instantiate(spriteDie, transform.position, Quaternion.identity);
+            PlayerDie();
             Debug.LogWarning("Player Die");
         }
+    }
+
+    public void PlayerDie()
+    {
+        isDie = true;
+        objectSprite.SetActive(false);
+        GameManager.instance.canvas.PanelLose(true);
     }
     public void GetExp(int exp)
     {

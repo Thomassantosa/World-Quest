@@ -52,9 +52,12 @@ public class Item : MonoBehaviour
                 GameManager.instance.Coin += amount;
                 break;
             case TypeItem.POTION_HEALTH:
+                PlayerControl.Instance.EffectHealing();
+                dataPlayer.SetHealthPoint(dataPlayer.GetHealthPoint() + amount);
                 //Add to inventory
                 break;
             case TypeItem.POTION_MANA:
+                dataPlayer.SetManaPoint(dataPlayer.GetManaPoint() + amount);
                 //Add to inventory
                 break;
             default:

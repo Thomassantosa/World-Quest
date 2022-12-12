@@ -59,8 +59,12 @@ public class Bullet : MonoBehaviour
             DestroyBullet();
             return;
         }
-        
-        if(!collision.gameObject.tag.Equals("Weapon"))
+        if (collision.gameObject.tag.Equals("Chest"))
+        {
+            Chest chest = collision.gameObject.GetComponent<Chest>();
+            chest.OpenChest();
+        }
+        if (!collision.gameObject.tag.Equals("Weapon"))
             DestroyBullet();
     }
 

@@ -61,6 +61,12 @@ abstract public class Weapon : MonoBehaviour
 
             Debug.Log("Hit " + collision.name);
 
+            if(collision.gameObject.tag.Equals("Chest"))
+            {
+                Chest chest = collision.gameObject.GetComponent<Chest>();
+                chest.OpenChest();
+            }
+
             if (collision.gameObject.tag.Equals("Enemy"))
             {
                 Debug.Log("Hit Enemy");
