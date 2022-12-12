@@ -85,6 +85,7 @@ public class PlayerData : MonoBehaviour
             exPoint = 0;
             maxExp += incrementExp;
             level++;
+            damage += 2;
             //Tambah Level Up
             Debug.LogWarning("Tambah Level Up");
         }
@@ -163,6 +164,9 @@ public class PlayerData : MonoBehaviour
    
     public void PlayerDashTrue()
     {
+        if (manaPoint < 5) return;
+
+        SetManaPoint(manaPoint - 5);
         SFXDash();
         _dashTime = dashTime;
         movementSpeed = dashSpeed;
@@ -177,6 +181,9 @@ public class PlayerData : MonoBehaviour
 
     public void PlayerSkillTrue()
     {
+        if (manaPoint < 20) return;
+
+        SetManaPoint(manaPoint - 40);
         PlayerControl.Instance.EffectUseSkill();
         SFXSkill();
         _skillTime = skillTime;

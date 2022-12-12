@@ -199,7 +199,7 @@ public class EnemyControl : MonoBehaviour
             
             DropItem();
 
-            PlayerControl.Instance.GetExp(5);
+            PlayerControl.Instance.GetExp(20);
 
             if(areaManager != null) areaManager.EnemyDie();
             enemyData.SetHealthPoint(0);

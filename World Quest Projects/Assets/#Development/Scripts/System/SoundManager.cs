@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
     public AudioSource sourceMusic;
     public AudioSource sourceSFX;
+
+    public Slider sldierMusic;
+    public Slider sldierSFX;
 
     [Header("Music")]
     public AudioClip[] listMusic;
@@ -16,14 +20,49 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
     }
+    private void Start()
+    {
+        if(!PlayerPrefs.HasKey("VolumeMusic"))
+        {
+
+            PlayerPrefs.SetFloat("VolumeMusic", 80);
+            PlayerPrefs.SetFloat("VolumeEffect", 80);
+        }
+
+        float volMusic = PlayerPrefs.GetFloat("VolumeMusic");
+        sourceMusic.volume = volMusic;
+        sldierMusic.value = volMusic;
+        float volEffect = PlayerPrefs.GetFloat("VolumeEffect");
+        sourceSFX.volume = volEffect;
+        sldierSFX.value = volEffect;
+    }
+    public float GetValEffect()
+    {
+        return PlayerPrefs.GetFloat("VolumeEffect");
+    }
+    public float GetValMusic()
+    {
+        return PlayerPrefs.GetFloat("VolumeMusic");
+    }
     public void PlayMusic(SoundMusic music)
     {
-        sourceMusic.clip = listSFX[music.GetHashCode()];
+        sourceMusic.clip = listMusic[music.GetHashCode()];
         sourceMusic.Play();
     }
     public void PlaySFX(SoundSFX sfx)
     {
         sourceSFX.PlayOneShot(listSFX[sfx.GetHashCode()]);
+    }
+
+    public void ChangeVolumeMusic(float val)
+    {
+        PlayerPrefs.SetFloat("VolumeMusic", val);
+        sourceMusic.volume = val;
+    }
+    public void ChangeVolumeEffect(float val)
+    {
+        PlayerPrefs.SetFloat("VolumeEffect", val);
+        sourceSFX.volume = val;
     }
 }
 

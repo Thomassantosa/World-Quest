@@ -124,7 +124,7 @@ public class EnemyTower : PlayerData
         {
             Instantiate(effectDie, transform.position, Quaternion.identity);
             Instantiate(spriteDie, transform.position, Quaternion.identity);
-            PlayerControl.Instance.GetExp(5);
+            PlayerControl.Instance.GetExp(30);
             SetHealthPoint(0);
             Destroy(gameObject);
         }

@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  isDie: 0
+  objectSprite: {fileID: 6102385416096362699}
   playerData: {fileID: 3696465289501447530}
   playerAttack: {fileID: 6102385415640639330}
   isImmune: 0
@@ -63,6 +65,8 @@ MonoBehaviour:
   effectSkill: {fileID: 7243875114019392927}
   effectSkillActive: {fileID: 388961593323830265}
   effectHeal: {fileID: 2898660967703706754}
+  effectDie: {fileID: 149344, guid: 617378de28fbaa64c96485d5b0d9169b, type: 3}
+  spriteDie: {fileID: 7206021028419386578, guid: ef1540bcb6731c847b1b8fbbb986c8d4, type: 3}
 --- !u!114 &3696465289501447530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +239,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2063502089
-  m_SortingLayer: 7
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3885aeb1f4a539046919a27a6af3060a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
